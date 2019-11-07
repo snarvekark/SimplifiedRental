@@ -1,11 +1,9 @@
-package edu.sjsu.esp.application;
+package edu.sjsu.esp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({ "edu.sjsu.esp.*" })
 public class Application {
 
     public static void main(String[] args) {
