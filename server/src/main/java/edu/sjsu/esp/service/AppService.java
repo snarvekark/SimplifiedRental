@@ -28,7 +28,11 @@ public class AppService {
 	 
 	 public WorkOrder updateWorkOrderService(WorkOrder newWorkOrder, Integer id) {
 		WorkOrder wo = woRepository.findById(id).get();
-		wo.setDescription(newWorkOrder.getDescription());
+		if(newWorkOrder.getTechnician()!=null) {
+			Technician t = technicianRepository.findById(newWorkOrder.getTechnician().getId()).get();
+			wo.setTechnician(t);
+		}
+		//wo.setDescription(newWorkOrder.getDescription());
 		return woRepository.save(wo);    
 	 }
 	 

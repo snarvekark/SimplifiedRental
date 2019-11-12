@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Technician {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -20,11 +20,11 @@ public class Technician {
 	@Column(name="last_name")
 	private String lastName;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

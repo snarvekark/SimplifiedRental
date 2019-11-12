@@ -9,17 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 
 @Entity
 @Table(name = "workorder")
 public class WorkOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	private String description;
 	private String status;
@@ -37,21 +37,33 @@ public class WorkOrder {
 	private Date endDate;
 	
 	@Column(name="user_id")
-	private int userId;
+	private Integer userId;
+	
+	@ManyToOne
+	@JoinColumn(name="technician_id", nullable = true)
+	private Technician technician;
 
-	public int getUserid() {
+	public Technician getTechnician() {
+		return technician;
+	}
+
+	public void setTechnician(Technician technician) {
+		this.technician = technician;
+	}
+
+	public Integer getUserid() {
 		return userId;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(Integer userid) {
 		this.userId = userid;
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
