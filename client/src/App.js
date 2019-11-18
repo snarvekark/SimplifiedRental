@@ -11,6 +11,7 @@ import OrderForm from './containers/OrderForm';
 import AssignOrder from './containers/AssignOrder';
 import Dashboard from './Dashboard';
 import Navbar from './Navbar';
+import Login from './containers/Login';
 
 class App extends React.Component
 {
@@ -24,6 +25,7 @@ class App extends React.Component
 				  <Route exact path="/"><Dashboard /></Route> 	
 	              <Route exact path="/OrderForm"><OrderForm /></Route>
 	              <Route exact path="/AssignOrder"><AssignOrder /></Route>
+				  <Route exact path="/Login"><Login /></Route>
   	          </Switch>
 	          </div>
 	        </Router>

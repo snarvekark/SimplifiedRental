@@ -8,6 +8,7 @@ import {
 
 import OrderForm from './containers/OrderForm';
 import AssignOrder from './containers/AssignOrder';
+import Login from './containers/Login';
 import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends React.Component {  
@@ -21,7 +22,7 @@ class Navbar extends React.Component {
           </button>
           <ul className="navbar-nav ml-auto ml-md-0">
             <li className="nav-item dropdown no-arrow">
-              <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a className="nav-link dropdown-toggle" href="/Login" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fas fa-user-circle fa-fw" />
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
