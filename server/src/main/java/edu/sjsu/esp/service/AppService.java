@@ -22,6 +22,14 @@ public class AppService {
 		return woRepository.listWorkOrdersQuery();
 	 }
 	 
+	 public List<WorkOrder> getCustOrderService(Integer userId){
+			return woRepository.listCustOrdersQuery(userId);
+	 }
+	 
+	 public List<WorkOrder> getTechnicianOrderService(Integer techId){
+			return woRepository.listTechnicianOrdersQuery(techId);
+	 }
+	 
 	 public WorkOrder createWorkOrderService(WorkOrder newWorkOrder) {
 		 return woRepository.save(newWorkOrder);
 	 }
