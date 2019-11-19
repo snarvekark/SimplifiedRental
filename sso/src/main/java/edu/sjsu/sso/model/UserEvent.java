@@ -1,4 +1,16 @@
-package edu.sjsu.sso;
+package edu.sjsu.sso.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Entity
 public class UserEvent {
 
@@ -45,7 +57,61 @@ public class UserEvent {
             '}';
     }
 
-    // put boilerplate getters and setters here
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Date getLoginAt() {
+        return loginAt;
+    }
+
+    public void setLoginAt(Date loginAt) {
+        this.loginAt = loginAt;
+    }
+
+    public Date getLastViewedAt() {
+        return lastViewedAt;
+    }
+
+    public void setLastViewedAt(Date lastViewedAt) {
+        this.lastViewedAt = lastViewedAt;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Date getTokenIssuedAt() {
+        return tokenIssuedAt;
+    }
+
+    public void setTokenIssuedAt(Date tokenIssuedAt) {
+        this.tokenIssuedAt = tokenIssuedAt;
+    }
 
     @Transient
     public String getTokenIssuedAtString() {
@@ -61,4 +127,5 @@ public class UserEvent {
     public String getLoginAtString() {
         return formatter.format(loginAt);
     }
+
 }
