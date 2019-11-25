@@ -46,6 +46,12 @@ class Dashboard extends React.Component {
                 <i className="fas fa-fw fa-life-ring" />
               </div>
               <div className="mr-5">Locations</div>
+              <a className="card-footer text-white clearfix small z-1" href="#">
+                <span className="float-left">View Details</span>
+                <span className="float-right">
+                    <i className="fas fa-angle-right" />
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -56,6 +62,12 @@ class Dashboard extends React.Component {
                 <i className="fas fa-fw fa-shopping-cart" />
               </div>
               <div className="mr-5">Book A Tour</div>
+              <a className="card-footer text-white clearfix small z-1" href="#">
+                <span className="float-left">View Details</span>
+                <span className="float-right">
+                    <i className="fas fa-angle-right" />
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -70,7 +82,7 @@ class Dashboard extends React.Component {
               <div className="mr-5">
                 Ammenities
               </div>
-              <a className="card-footer text-white clearfix small z-1" href="/OrderForm">
+              <a className="card-footer text-white clearfix small z-1" href="#">
                 <span className="float-left">View Details</span>
                 <span className="float-right">
                   <i className="fas fa-angle-right" />
@@ -86,7 +98,7 @@ class Dashboard extends React.Component {
                 <i className="fas fa-fw fa-list" />
               </div>
               <div className="mr-5">Floor Plans</div>
-              <a className="card-footer text-white clearfix small z-1" href="/AssignOrder">
+              <a className="card-footer text-white clearfix small z-1" href="#">
                 <span className="float-left">View Details</span>
                 <span className="float-right">
                   <i className="fas fa-angle-right" />

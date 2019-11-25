@@ -44,6 +44,12 @@ class Manager extends React.Component {
                                     <i className="fas fa-fw fa-shopping-cart" />
                                 </div>
                                 <div className="mr-5">Add Technician</div>
+                                <a className="card-footer text-white clearfix small z-1" href="#">
+                                    <span className="float-left">View Details</span>
+                                    <span className="float-right">
+                                        <i className="fas fa-angle-right" />
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -54,6 +60,12 @@ class Manager extends React.Component {
                                     <i className="fas fa-fw fa-life-ring" />
                                 </div>
                                 <div className="mr-5">Admin Access</div>
+                                <a className="card-footer text-white clearfix small z-1" href="#">
+                                    <span className="float-left">View Details</span>
+                                    <span className="float-right">
+                                        <i className="fas fa-angle-right" />
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>
