@@ -29,6 +29,16 @@ public class AppController {
     	return appService.getWorkOrderService();
     }
     
+    @GetMapping("/getCustomerOrders/{userId}")
+    public List<WorkOrder> getCustOrders(@PathVariable Integer userId){
+    	return appService.getCustOrderService(userId);
+    }
+    
+    @GetMapping("/getTechnicianOrders/{techId}")
+    public List<WorkOrder> getTechnicianOrders(@PathVariable Integer techId){
+    	return appService.getTechnicianOrderService(techId);
+    }
+    
     @PostMapping("/createWorkOrder")
     public WorkOrder createWorkOrder(@RequestBody WorkOrder newWorkOrder) {
     	return appService.createWorkOrderService(newWorkOrder);
