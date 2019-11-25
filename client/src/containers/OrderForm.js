@@ -6,6 +6,9 @@ import Input from '../components/Input';
 import TextArea from '../components/TextArea';  
 import Select from '../components/Select';
 import Button from '../components/Button';
+import Manager from '../Manager';
+import Technician from '../Technician';
+import Dashboard from '../Dashboard';
 import SimpleReactValidator from 'simple-react-validator';
 import { Link, withRouter } from "react-router-dom";
 
