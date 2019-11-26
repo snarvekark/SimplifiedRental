@@ -9,20 +9,35 @@ import {
 import { Link, withRouter } from "react-router-dom";
 import FormErrors from "./Validation/FormErrors";
 import Validate from "./Validation/ValidateForm";
+import { Security, ImplicitCallback } from '@okta/okta-react';
+import { withAuth } from '@okta/okta-react';
 
 class Login extends React.Component
 {
-    constructor(props) {
+    
+  constructor(props) {
         super(props);
         this.state = {
         username: "",
         password: "",
         errors: {
           blankfield: false
-        }
+        },
+        authenticated: null
       }
+      this.checkAuthentication = this.checkAuthentication.bind(this);
+      this.checkAuthentication();
+      this.login = this.login.bind(this);
+      this.logout = this.logout.bind(this);
       };
-    
+
+      config = {
+        issuer: 'https://${https://dev-281716.okta.com}/oauth2/default',
+        redirectUri: window.location.origin + '/implicit/callback',
+        clientId: '{0oa1x3hdtxFhgj9N8357}',
+        pkce: true
+        }
+          
       clearErrorState = () => {
         this.setState({
           errors: {
@@ -55,7 +70,29 @@ class Login extends React.Component
         });
         document.getElementById(event.target.id).classList.remove("is-danger");
       };
+
+    //Auth
+      checkAuthentication = async event => {
+        const authenticated = await this.props.auth.isAuthenticated();
+        if (authenticated !== this.state.authenticated) {
+          this.setState({ authenticated });
+        }
+      };
     
+      componentDidUpdate() {
+        this.checkAuthentication();
+      };
+    
+      login = async event => {
+        // Redirect to '/' after login
+        this.props.auth.login('/');
+      };
+    
+      logout = async event => {
+        // Redirect to '/' after logout
+        this.props.auth.logout('/');
+      };
+
     render() {
         return (
             <div>
@@ -90,7 +127,7 @@ class Login extends React.Component
                             <div className="container-login100-form-btn">
                             <div className="wrap-login100-form-btn">
                                 <div className="login100-form-bgbtn" />
-                                <button className="login100-form-btn">
+                                <button className="login100-form-btn" onClick={this.login}>
                                 Login
                                 </button>
                             </div>
@@ -102,10 +139,10 @@ class Login extends React.Component
                             </div>
                             <div className="flex-c-m">
                                 <a href="#" className="login100-social-item bg2">
-                                    <i className="fa fa-twitter" />
+                                    <i className="fab fa-twitter" />
                                 </a>
                                 <a href="#" className="login100-social-item bg3">
-                                    <i className="fa fa-google" />
+                                    <i className="fab fa-google" />
                                 </a>
                             </div>
                         </form>

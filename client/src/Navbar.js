@@ -10,13 +10,19 @@ import OrderForm from './containers/OrderForm';
 import AssignOrder from './containers/AssignOrder';
 import Login from './containers/Login';
 import { Link, withRouter } from "react-router-dom";
+import Dashboard from './Dashboard';
+import Manager from './Manager';
+import Technician from './Technician';
 
 class Navbar extends React.Component {  
+
     render() {
         return (
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
-          <a className="navbar-brand mr-1" href="/Dashboard">Home</a>
+        <nav className="navbar navbar-expand navbar-light bg-light static-top">
+          <a className="navbar-brand mr-1" href="/Dashboard">
+            <i className="fas fa-home" />
+          </a>
           <button className="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i className="fas fa-bars" />
           </button>
@@ -33,9 +39,23 @@ class Navbar extends React.Component {
               </div>
             </li>
           </ul>
+          <ul className="navbar-nav ml-auto">
+            <li className="dropdown">
+              <div class="dropdown rightnav">
+                <button class="btn btn-success dropdown-toggle btn-lg rightnav" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Roles</button>
+                <div class="dropdown-menu dropdown-primary">
+                  <React.Fragment>
+                  <Link to="/Dashboard" className="dropdown-item">Customer</Link>
+                  <Link to="/Manager" className="dropdown-item">Manager</Link>
+                  <Link to="/Technician" className="dropdown-item">Technician</Link>
+                  </React.Fragment>
+                </div>
+              </div>
+            </li>
+          </ul>
         </nav>
-    </div>
-);
+    </div>);
 }
 }
-export default Navbar;
+export default withRouter(Navbar);
