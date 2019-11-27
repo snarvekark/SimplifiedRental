@@ -22,7 +22,8 @@ class AssignOrder extends Component {
         technician: "",
         priority: [],
         description: "",
-        technicianList: []
+        technicianList: [],
+        selectedTechnician: ""
       },
       priorityOptions: ["Low", "High", "Urgent", "Cosmetic"]
     };
@@ -33,7 +34,7 @@ class AssignOrder extends Component {
     this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
-  
+
   getTechniciansList = async () => {
     let URL = "http://localhost:8080/api/getTechnicians";
     fetch(URL)
@@ -56,7 +57,7 @@ class AssignOrder extends Component {
     if (arrayOfData) {
       return arrayOfData.map(data => {
         return (
-          <option key={data.id}>{data.firstName + " " + data.lastName}</option>
+          <option key={data.id} value={data.id}>{data.firstName + " " + data.lastName}</option>
         );
       });
     }
@@ -138,6 +139,11 @@ class AssignOrder extends Component {
         description: ""
       }
     });
+  }
+
+  onInputChange = (event) =>
+  {
+      this.state.selectedTechnician = event.target.value;
   }
 
   render() {
