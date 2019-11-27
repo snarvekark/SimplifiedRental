@@ -57,7 +57,9 @@ class AssignOrder extends Component {
     if (arrayOfData) {
       return arrayOfData.map(data => {
         return (
-          <option key={data.id} value={data.id}>{data.firstName + " " + data.lastName}</option>
+          <option key={data.id} value={data.id}>
+            {data.firstName + " " + data.lastName}
+          </option>
         );
       });
     }
@@ -106,27 +108,32 @@ class AssignOrder extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
     let orderData = this.state.newOrder;
+    let orderId = 7;
+    let updateOrder = {
+      technician: {
+        id: this.state.selectedTechnician
+      }
+    };
     console.log("Inside Handle Submit");
     if (this.validator.allValid()) {
-      alert("You submitted the form");
+      console.log("You submitted the form");
+      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+        method: "PUT",
+        body: JSON.stringify(updateOrder),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(response => {
+        response.json().then(data => {
+          console.log("Successful" + data);
+        });
+      });
     } else {
       this.validator.showMessages();
       // rerender to show messages for the first time
       // you can use the autoForceUpdate option to do this automatically`
       this.forceUpdate();
     }
-    fetch("https://cors-anywhere.herokuapp.com/http://example.com", {
-      method: "POST",
-      body: JSON.stringify(orderData),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then(response => {
-      response.json().then(data => {
-        console.log("Successful" + data);
-      });
-    });
   }
 
   handleClearForm(e) {
@@ -141,10 +148,9 @@ class AssignOrder extends Component {
     });
   }
 
-  onInputChange = (event) =>
-  {
-      this.state.selectedTechnician = event.target.value;
-  }
+  onInputChange = event => {
+    this.state.selectedTechnician = event.target.value;
+  };
 
   render() {
     return (
