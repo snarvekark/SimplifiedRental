@@ -91,15 +91,15 @@ class OrderForm extends Component {
       userid: "1",
       description: this.state.newUser.description,
       priority: "High",
-      aptNum: this.state.newUser.address
+      aptNum: this.state.newUser.address,
+      status: "PENDING"
     };
     console.log("Inside Handle Submit");
     if (this.validator.allValid()) {
       fetch("http://localhost:8080/api/createWorkOrder", {
         method: "POST",
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json; charset=utf-8"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(workOrder)
         // mode: 'no-cors'
