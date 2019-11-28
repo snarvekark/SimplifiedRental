@@ -14,6 +14,7 @@ import Manager from './Manager';
 import Technician from './Technician';
 import Navbar from './Navbar';
 import Login from './containers/Login';
+import PickOrder from './containers/PickOrder';
 
 class App extends React.Component
 {
@@ -31,6 +32,7 @@ class App extends React.Component
 	              <Route exact path="/OrderForm"><OrderForm /></Route>
 	              <Route exact path="/AssignOrder"><AssignOrder /></Route>
 				  <Route exact path="/Login"><Login /></Route>
+				  <Route exact path="/PickOrder"><PickOrder /></Route>
   	          </Switch>
 	          </div>
 	        </Router>

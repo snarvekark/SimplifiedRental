@@ -11,6 +11,7 @@ import Technician from "../Technician";
 import Dashboard from "../Dashboard";
 import SimpleReactValidator from "simple-react-validator";
 import { Link, withRouter } from "react-router-dom";
+import PickOrder from "./PickOrder";
 
 class AssignOrder extends Component {
   constructor(props) {
@@ -161,9 +162,9 @@ class AssignOrder extends Component {
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
           <Input
             inputType={"text"}
-            title={"OrderId"}
+            title={"orderId"}
             name={"name"}
-            value={this.state.newOrder.orderId}
+            value={this.orderPicked}
             placeholder={"Order Id"}
             disabled={true}
           />
@@ -173,7 +174,7 @@ class AssignOrder extends Component {
               this.state.orderId,
               "required|alpha"
             )}
-          </p>
+            </p>
           <label for="technician">Technician</label>
           <select
             className="form-control"
