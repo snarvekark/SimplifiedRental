@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import OrderForm from './containers/OrderForm';
-import PickOrder from './containers/PickOrder';
 import AssignOrder from './containers/AssignOrder';
 import Login from './containers/Login';
 import Navbar from './Navbar';

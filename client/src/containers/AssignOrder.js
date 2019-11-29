@@ -11,7 +11,7 @@ import Technician from "../Technician";
 import Dashboard from "../Dashboard";
 import SimpleReactValidator from "simple-react-validator";
 import { Link, withRouter } from "react-router-dom";
-import PickOrder from "./PickOrder";
+
 
 class AssignOrder extends Component {
   constructor(props) {

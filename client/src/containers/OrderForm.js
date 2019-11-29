@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 
 /* Import Components */
-import CheckBox from "../components/CheckBox";
-import Input from "../components/Input";
-import TextArea from "../components/TextArea";
-import Select from "../components/Select";
-import Button from "../components/Button";
 import Manager from "../Manager";
 import Technician from "../Technician";
 import Dashboard from "../Dashboard";
-import SimpleReactValidator from "simple-react-validator";
 import { Link, withRouter } from "react-router-dom";
 import FormErrors from './Validation/FormErrors';
 import ValidateForm from './Validation/ValidateForm';
+import OrderList from './OrderList';
 
 
 class OrderForm extends Component {
@@ -80,6 +75,7 @@ class OrderForm extends Component {
           console.log("Successful" + response);
         });
         console.log("You submitted the form");
+        this.props.history.push("/OrderList");
     }
     catch (error) {
       let err = null;
@@ -107,7 +103,7 @@ class OrderForm extends Component {
     return (
       <div>
         <div className="container">
-          <h2 style={{marginTop: '30px'}}>Customer Order</h2>
+          <h2 style={{marginTop: '30px'}}>Customer Orders</h2>
         
         <FormErrors formerrors={this.state.errors} />
         <div class="d-flex justify-content-center align-items-center container">
