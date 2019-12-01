@@ -1,22 +1,26 @@
-//package edu.sjsu.esp.controller;
-//
-//import edu.sjsu.esp.model.UserEvent;
-//import edu.sjsu.esp.dao.UserEventDAO;
-//import org.springframework.security.core.annotation.AuthenticationPrincipal;
-//import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.web.servlet.ModelAndView;
-//import org.springframework.web.servlet.view.RedirectView;
-//
-//import java.time.Instant;
-//import java.util.Date;
-//import java.util.List;
-//
-//@RestController
-//public class HomeController {
+/*package edu.sjsu.esp.controller;
+
+import edu.sjsu.esp.model.User;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	@GetMapping("/")
+	String helloUser(@AuthenticationPrincipal OidcUser user) {
+		String token = user.getIdToken().getTokenValue();
+		String name = user.getClaims().get("name").toString();
+		//int id = Integer.parseInt(user.getSubject());
+		String email = (String) user.getAttributes().get("email");
+		String role = user.getUserInfo().getClaimAsString("groups");
+		System.out.println(role);
+		User renter = new User(name, token, email, role);
+		return "Hello " + user.getAttributes().get("email");
+	}
+}*/
 //
 //    private final UserEventDAO userEventRepository;
 //
