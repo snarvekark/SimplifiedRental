@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 
 import OrderForm from './containers/OrderForm';
-import AssignOrder from './containers/AssignOrder';
+import AssignOrder from './containers/MgrOrderList';
 import Login from './containers/Login';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 import Technician from './Technician';
 import { Link, withRouter } from "react-router-dom";
+
 
 class Manager extends React.Component {  
     render() {
@@ -28,7 +29,7 @@ class Manager extends React.Component {
                                     <i className="fas fa-fw fa-list" />
                                 </div>
                                 <div className="mr-5">Assign Task</div>
-                                <a className="card-footer text-white clearfix small z-1" href="/PickOrder">
+                                <a className="card-footer text-white clearfix small z-1" href="/MgrOrderList">
                                     <span className="float-left">View Details</span>
                                     <span className="float-right">
                                         <i className="fas fa-angle-right" />

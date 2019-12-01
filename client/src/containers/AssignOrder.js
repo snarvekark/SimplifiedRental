@@ -12,7 +12,6 @@ import Dashboard from "../Dashboard";
 import SimpleReactValidator from "simple-react-validator";
 import { Link, withRouter } from "react-router-dom";
 
-
 class AssignOrder extends Component {
   constructor(props) {
     super(props);
@@ -21,22 +20,20 @@ class AssignOrder extends Component {
       newOrder: {
         orderId: "",
         technician: "",
-        priority: [],
+        priority: "",
         description: "",
         technicianList: [],
-        selectedTechnician: ""
+        selectedTechnician: "",
+        
       },
-      priorityOptions: ["Low", "High", "Urgent", "Cosmetic"]
     };
     this.validator = new SimpleReactValidator();
-    this.handleTextArea = this.handleTextArea.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleClearForm = this.handleClearForm.bind(this);
-    this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
   getTechniciansList = async () => {
+    
     let URL = "http://localhost:8080/api/getTechnicians";
     fetch(URL)
       .then(response => response.json())
@@ -75,39 +72,9 @@ class AssignOrder extends Component {
     );
   }
 
-  handleTextArea(e) {
-    console.log("Inside handleTextArea");
-    let value = e.target.value;
-    this.setState(
-      prevState => ({
-        newOrder: {
-          ...prevState.newOrder,
-          description: value
-        }
-      }),
-      () => console.log(this.state.newOrder)
-    );
-  }
-
-  handleCheckBox(e) {
-    const newSelection = e.target.value;
-    let newSelectionArray;
-
-    if (this.state.newOrder.priority.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.newOrder.priority.filter(
-        s => s !== newSelection
-      );
-    } else {
-      newSelectionArray = [...this.state.newOrder.priority, newSelection];
-    }
-
-    this.setState(prevState => ({
-      newOrder: { ...prevState.newOrder, priority: newSelectionArray }
-    }));
-  }
-
   handleFormSubmit(e) {
     e.preventDefault();
+    console.log("Inside Load function : " + JSON.stringify(this.props.current));
     let orderData = this.state.newOrder;
     let orderId = 7;
     let updateOrder = {
@@ -149,9 +116,9 @@ class AssignOrder extends Component {
     });
   }
 
-  onInputChange = event => {
-    this.state.selectedTechnician = event.target.value;
-  };
+    onInputChange = event => {
+      this.state.selectedTechnician = event.target.value;
+    };
 
   render() {
     return (
@@ -162,19 +129,12 @@ class AssignOrder extends Component {
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
           <Input
             inputType={"text"}
-            title={"orderId"}
-            name={"name"}
-            value={this.orderPicked}
+            title={"Id"}
+            name={"orderId"}
+            value={this.orderId}
             placeholder={"Order Id"}
             disabled={true}
           />
-          <p>
-            {this.validator.message(
-              "orderId",
-              this.state.orderId,
-              "required|alpha"
-            )}
-            </p>
           <label for="technician">Technician</label>
           <select
             className="form-control"
@@ -196,39 +156,26 @@ class AssignOrder extends Component {
               "required|alpha"
             )}
           </p>
-          <CheckBox
+          <Input
+            inputType={"text"}
             title={"Priority"}
             name={"priority"}
-            options={this.state.priorityOptions}
-            selectedOptions={this.state.newOrder.priority}
-            handleChange={this.handleCheckBox}
+            value={this.priority}
+            placeholder={"Priority"}
+            disabled={true}
           />
-          <TextArea
+          <Input
+            inputType={"text"}
             title={"Description"}
-            rows={10}
-            value={this.state.newOrder.description}
-            name={"currentPetInfo"}
-            handleChange={this.handleTextArea}
-            placeholder={"Describe your issue"}
+            name={"description"}
+            value={this.description}
+            placeholder={"Description"}
+            disabled={true}
           />
-          <p>
-            {this.validator.message(
-              "description",
-              this.state.description,
-              "required|alpha"
-            )}
-          </p>
           <Button
             action={this.handleFormSubmit}
             type={"primary"}
             title={"Submit"}
-            style={buttonStyle}
-          />
-
-          <Button
-            action={this.handleClearForm}
-            type={"secondary"}
-            title={"Clear"}
             style={buttonStyle}
           />
         </form>

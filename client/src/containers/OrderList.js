@@ -10,7 +10,6 @@ import ValidateForm from './Validation/ValidateForm';
 import OrderForm from './OrderForm';
 import { JsonToTable } from "react-json-to-table";
 
-
 class OrderList
  extends Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class OrderList
 
   renderTableData() {
     return this.state.orderList.map((response) => {
-       const { id, priority, description, status} = response 
+       const { id, priority, description, status} = response
         return (
             <tr key={id}>
               <td>{id}</td>
