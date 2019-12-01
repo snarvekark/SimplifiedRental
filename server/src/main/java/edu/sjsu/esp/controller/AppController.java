@@ -49,6 +49,11 @@ public class AppController {
     	return appService.updateWorkOrderService(newWorkOrder, id);
     }
     
+    @PutMapping("/updateStatusWorkOrder/{id}")
+    public WorkOrder updateStatusWorkOrder(@RequestBody WorkOrder newWorkOrder, @PathVariable Integer id) {
+    	return appService.updateStatusWorkOrderService(newWorkOrder, id);
+    }
+    
     @GetMapping("/getTechnicians")
     public List<Technician> getTechnicians(){
     	return appService.getTechnicianService();
