@@ -23,6 +23,20 @@ public class User {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="token")
+	private String token;
+	
+	@Column(name="role")
+	private String role;
+	
+	public User(String name, String token, String email, String role) {
+		this.firstName = name.substring(0, name.lastIndexOf(' '));
+		this.lastName = name.substring(name.lastIndexOf(" ")+1);
+		this.token = token;
+		this.email = email;
+		this.role = role;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -53,6 +67,22 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String Role) {
+		this.role = role;
 	}
 
 }
