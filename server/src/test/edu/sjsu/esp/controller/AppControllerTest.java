@@ -2,10 +2,10 @@ package edu.sjsu.esp.controller;
 
 import static org.mockito.Mockito.when;
 
+import org.junit.Assert;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -78,5 +78,39 @@ public class AppControllerTest {
 		list.add(t2);
 		when(appService.getTechnicianService()).thenReturn(list);
 		Assert.assertEquals(appController.getTechnicians(), list);
+	}
+	
+	@Test
+	public void createWorkOrderTest() {
+		WorkOrder wo = new WorkOrder();
+		wo.setDescription("WorkOrder Test");
+		wo.setPriority("HIGH");
+		wo.setStatus("PENDING");
+		wo.setId(6);
+		when(appService.createWorkOrderService(wo)).thenReturn(wo);
+		Assert.assertEquals(appController.createWorkOrder(wo).getDescription(),wo.getDescription());
+	}
+	
+	@Test
+	public void updateWorkOrderTest() {
+		WorkOrder workOrder = new WorkOrder();
+		workOrder.setId(1);
+		workOrder.setDescription("WorkOrder test");
+		Technician t1= new Technician();
+		t1.setId(1);
+		t1.setFirstName("John");
+		workOrder.setTechnician(t1);
+	    when(appService.updateWorkOrderService(workOrder, 1)).thenReturn(workOrder);
+	    Assert.assertEquals(appController.updateWorkOrder(workOrder, 1).getTechnician(),workOrder.getTechnician());
+	}
+	
+	@Test
+	public void updateStatusWorkOrderTest() {
+		WorkOrder workOrder = new WorkOrder();
+		workOrder.setId(1);
+		workOrder.setDescription("WorkOrder test");
+		workOrder.setStatus("PENDING");
+	    when(appService.updateStatusWorkOrderService(workOrder, 1)).thenReturn(workOrder);
+	    Assert.assertEquals(appController.updateStatusWorkOrder(workOrder, 1).getStatus(),workOrder.getStatus());
 	}
 }
