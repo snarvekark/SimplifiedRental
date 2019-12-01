@@ -26,8 +26,7 @@ class MgrOrderList
    } 
   }
 
-  getTechniciansList = async () => {
-    
+  getTechniciansList = async () => {    
     let URL = "http://localhost:8080/api/getTechnicians";
     fetch(URL)
       .then(response => response.json())
@@ -43,7 +42,6 @@ class MgrOrderList
   componentWillMount() {
     this.getData();
     this.getTechniciansList();
-
   }
 
   renderDropDown = () => {
@@ -62,8 +60,9 @@ class MgrOrderList
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+
   getData = async () => {
-    let URL = "http://localhost:8080/api/getCustomerOrders/1";
+    let URL = "http://localhost:8080/api/getWorkOrders";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -75,20 +74,25 @@ class MgrOrderList
     console.log("After Fetch");
   };
 
-  assignTechnician = async (response) => {
+  assignTechnician = async (orderId) => {
     console.log("Assign Technician");
-    console.log(response);
-    /*fetch("http://localhost:8080/api/createWorkOrder", {
-        method: "POST",
+    console.log("orderId"+orderId);
+    let updateOrder = {
+      technician: {
+        id: this.state.selectedTechnician
+      }
+    };
+    fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+        method: "PUT",
+        body: JSON.stringify(updateOrder),
         headers: {
           "Content-Type": "application/json"
-          },
-          body: JSON.stringify(workOrder)
-        }).then(response => {
-          console.log("Successful" + response);
+        }
+      }).then(response => {
+        response.json().then(data => {
+          console.log("Successful" + data);
         });
-        console.log("You assigned the Technician");
-        this.props.history.push("/MgrOrderList");*/
+      });
   };
 
   onInputChange = event => {
@@ -122,7 +126,7 @@ class MgrOrderList
                     {this.renderDropDown()}
                 </select> 
             </td>
-            <td><button className="btn btn-default btn-light" onClick={this.assignTechnician(id)}>
+            <td><button className="btn btn-default btn-light" onClick={() => this.assignTechnician(id)}>
                 Assign Technician
                 </button>
             </td>
