@@ -58,4 +58,9 @@ public class AppController {
     public List<Technician> getTechnicians(){
     	return appService.getTechnicianService();
     }
+    
+    @GetMapping("/getAssignedWorkOrders")
+    public List<WorkOrder> getAssignedWorkOrders(){
+    	return appService.getAssignedWorkOrderService();
+    }
 }

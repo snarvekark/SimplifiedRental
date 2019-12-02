@@ -9,8 +9,11 @@ import edu.sjsu.esp.model.WorkOrder;
 
 public interface WorkOrderDAO extends JpaRepository<WorkOrder, Integer> {
 
-	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED'", nativeQuery = true)
+	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND TECHNICIAN_ID IS NULL", nativeQuery = true)
 	List<WorkOrder> listWorkOrdersQuery();
+	
+	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND TECHNICIAN_ID IS NOT NULL", nativeQuery = true)
+	List<WorkOrder> listAssignedWorkOrdersQuery();
 
 	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND USER_ID = ?1", nativeQuery = true)
 	List<WorkOrder> listCustOrdersQuery(Integer userid);

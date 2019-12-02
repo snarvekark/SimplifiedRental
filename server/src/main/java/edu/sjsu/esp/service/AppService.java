@@ -52,4 +52,8 @@ public class AppService {
 	public List<Technician> getTechnicianService() {
 		return technicianRepository.findAll();
 	}
+	
+	public List<WorkOrder> getAssignedWorkOrderService() {
+		return woRepository.listAssignedWorkOrdersQuery();
+	}
 }
