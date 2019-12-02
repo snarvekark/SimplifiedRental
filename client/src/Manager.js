@@ -30,12 +30,12 @@ class Manager extends React.Component {
                                     <i className="fas fa-fw fa-list" />
                                 </div>
                                 <div className="mr-5">Assign Task</div>
-                                <a className="card-footer text-white clearfix small z-1" href="/MgrOrderList">
+                                <Link className="card-footer text-white clearfix small z-1" to='/MgrOrderList'>
                                     <span className="float-left">View Details</span>
                                     <span className="float-right">
                                         <i className="fas fa-angle-right" />
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
