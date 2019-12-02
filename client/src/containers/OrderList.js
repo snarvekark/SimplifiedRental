@@ -82,6 +82,20 @@ class OrderList
             </tbody>
           </table>
         </div>
+        <div className="container-fluid">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/OrderForm'>New Request</Link>
+                </td>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/Dashboard'>My Dashboard</Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       </form>
 

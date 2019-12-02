@@ -30,9 +30,9 @@ class Dashboard extends React.Component {
                 <i className="fas fa-fw fa-comments" />
               </div>
               <div className="mr-5">
-                Register Complaint
+                Maintenance Requests
               </div>
-              <a className="card-footer text-white clearfix small z-1" href="/OrderForm" onClick="">
+              <a className="card-footer text-white clearfix small z-1" href="/OrderList" onClick="">
                 <span className="float-left">View Details</span>
                 <span className="float-right">
                   <i className="fas fa-angle-right" />
