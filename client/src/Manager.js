@@ -18,6 +18,7 @@ import { Link, withRouter } from "react-router-dom";
 class Manager extends React.Component {  
     render() {
         return (
+    <React.Fragment>
     <div className="bg" style = {{height:"100vh"}}>
         <div id="content-wrapper">
             <div className="container-fluid">
@@ -74,6 +75,12 @@ class Manager extends React.Component {
             </div>
         </div>
     </div>
+    <footer>
+    <div class="footer-copyright text-center py-3 bg-light static-bottom">© 2019 Copyright
+      <a href="http://localhost:3000"> Simplified Rental</a>
+    </div>
+  </footer>
+</React.Fragment>
    );
 }
 }

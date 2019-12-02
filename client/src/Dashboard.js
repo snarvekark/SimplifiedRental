@@ -19,6 +19,7 @@ import { Link, withRouter } from "react-router-dom";
 class Dashboard extends React.Component {  
     render() {
         return (
+<React.Fragment>
 <div className="bg" style = {{height:"100vh"}}>
   <div id="content-wrapper">
     <div className="container-fluid">
@@ -113,6 +114,26 @@ class Dashboard extends React.Component {
     </div>
   </div>
 </div>
+<footer class="page-footer font-small green fixed-bottom static-bottom">
+      <div class="container">
+        <ul class="list-unstyled list-inline text-center">
+          <li class="list-inline-item">
+          <a class="login100-social-item bg3" href="#">
+            <i class="fab fa-yelp"></i>
+          </a>
+          </li>
+          <li class="list-inline-item">
+          <a href="#" class="login100-social-item bg2">
+            <i class="fab fa-twitter"></i>
+          </a>
+          </li>
+        </ul>
+      </div>
+    <div class="footer-copyright text-center py-3">© 2019 Copyright
+      <a href="http://localhost:3000"> Simplified Rental</a>
+    </div>
+  </footer>
+  </React.Fragment>
    );
 }
 }
