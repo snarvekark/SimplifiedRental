@@ -30,7 +30,7 @@ class Technician extends React.Component {
                       <div className="mr-5">
                         View Tasks
                       </div>
-                      <a className="card-footer text-white clearfix small z-1" href="#" onClick="">
+                      <a className="card-footer text-white clearfix small z-1" href="/TechOrderList" onClick="">
                           <span className="float-left">View Details</span>
                           <span className="float-right">
                           <i className="fas fa-angle-right" />

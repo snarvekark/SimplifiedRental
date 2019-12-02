@@ -18,6 +18,8 @@ import OrderList from './containers/OrderList';
 import MgrOrderList from './containers/MgrOrderList';
 import AssignedTasks from './containers/AssignedTasks';
 import AddTechnician from './containers/AddTechnician';
+import TechOrderList from './containers/TechOrderList';
+import InprogressTasks from './containers/InprogressTasks';
 
 class App extends React.Component
 {
@@ -38,6 +40,8 @@ class App extends React.Component
 				  <Route exact path="/OrderList"><OrderList /></Route>
 				  <Route exact path="/AddTechnician"><AddTechnician /></Route>
 				  <Route exact path="/AssignedTasks"><AssignedTasks /></Route>
+				  <Route exact path="/TechOrderList"><TechOrderList /></Route>
+				  <Route exact path="/InprogressTasks"><InprogressTasks /></Route>
 				  <Route exact path="/MgrOrderList" render={(props) => <MgrOrderList {...props}/>}><MgrOrderList /></Route>
   	          </Switch>
 	          </div>

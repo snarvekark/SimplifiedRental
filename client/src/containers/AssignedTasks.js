@@ -68,7 +68,7 @@ class AssignedTasks
       <form>
       <div className="container">
         <div className="container-fluid">
-          <h1>Assigned Order List</h1>
+          <h1>Assigned Orders List</h1>
           <table class="table table-bordered table-hover">
             <thead class="thead-dark">
               <tr>
