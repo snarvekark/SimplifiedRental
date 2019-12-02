@@ -123,7 +123,7 @@ class Dashboard extends React.Component {
           </a>
           </li>
           <li class="list-inline-item">
-          <a href="#" class="login100-social-item bg2">
+          <a href="/Twitter" class="login100-social-item bg2">
             <i class="fab fa-twitter"></i>
           </a>
           </li>
