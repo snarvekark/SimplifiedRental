@@ -16,6 +16,7 @@ import Navbar from './Navbar';
 import Login from './containers/Login';
 import OrderList from './containers/OrderList';
 import MgrOrderList from './containers/MgrOrderList';
+import AssignedTasks from './containers/AssignedTasks';
 import AddTechnician from './containers/AddTechnician';
 
 class App extends React.Component
@@ -36,6 +37,7 @@ class App extends React.Component
 				  <Route exact path="/Login"><Login /></Route>
 				  <Route exact path="/OrderList"><OrderList /></Route>
 				  <Route exact path="/AddTechnician"><AddTechnician /></Route>
+				  <Route exact path="/AssignedTasks"><AssignedTasks /></Route>
 				  <Route exact path="/MgrOrderList" render={(props) => <MgrOrderList {...props}/>}><MgrOrderList /></Route>
   	          </Switch>
 	          </div>

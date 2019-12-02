@@ -10,6 +10,7 @@ import ValidateForm from './Validation/ValidateForm';
 import OrderForm from './OrderForm';
 import { JsonToTable } from "react-json-to-table";
 import AssignOrder from './AssignOrder';
+import AssignedTasks from './AssignedTasks';
 
 
 class MgrOrderList
@@ -77,22 +78,35 @@ class MgrOrderList
   assignTechnician = async (orderId) => {
     console.log("Assign Technician");
     console.log("orderId"+orderId);
-    let updateOrder = {
-      technician: {
-        id: this.state.selectedTechnician
-      }
-    };
-    fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
-        method: "PUT",
-        body: JSON.stringify(updateOrder),
-        headers: {
-          "Content-Type": "application/json"
+    try
+    {
+      let updateOrder = {
+        technician: {
+          id: this.state.selectedTechnician
         }
-      }).then(response => {
-        response.json().then(data => {
-          console.log("Successful" + data);
+      };
+      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+          method: "PUT",
+          body: JSON.stringify(updateOrder),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(response => {
+          response.json().then(data => {
+            console.log("Successful" + data);
+          });
         });
-      });
+        this.props.history.push("/AssignedTasks");
+    }
+      catch (error) {
+        let err = null;
+        !error.message ? err = { "message": error } : err = error;
+        this.setState({
+          errors: {
+            ...this.state.errors
+          }
+        });
+      }
   };
 
   onInputChange = event => {
