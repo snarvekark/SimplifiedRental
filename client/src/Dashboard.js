@@ -33,12 +33,12 @@ class Dashboard extends React.Component {
               <div className="mr-5">
                 Maintenance Requests
               </div>
-              <a className="card-footer text-white clearfix small z-1" href="/OrderList" onClick="">
+              <Link className="card-footer text-white clearfix small z-1" to="/OrderList" onClick="">
                 <span className="float-left">View Details</span>
                 <span className="float-right">
                   <i className="fas fa-angle-right" />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -123,14 +123,14 @@ class Dashboard extends React.Component {
           </a>
           </li>
           <li class="list-inline-item">
-          <a href="/Twitter" class="login100-social-item bg2">
+          <Link to="/Twitter" class="login100-social-item bg2">
             <i class="fab fa-twitter"></i>
-          </a>
+          </Link>
           </li>
         </ul>
       </div>
     <div class="footer-copyright text-center py-3">© 2019 Copyright
-      <a href="http://localhost:3000"> Simplified Rental</a>
+      <Link to="http://localhost:3000"> Simplified Rental</Link>
     </div>
   </footer>
   </React.Fragment>
