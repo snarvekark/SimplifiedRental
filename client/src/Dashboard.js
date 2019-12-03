@@ -118,9 +118,9 @@ class Dashboard extends React.Component {
       <div class="container">
         <ul class="list-unstyled list-inline text-center">
           <li class="list-inline-item">
-          <a class="login100-social-item bg3" href="#">
-            <i class="fab fa-yelp"></i>
-          </a>
+          <Link className="login100-social-item bg3" to="/Yelp">
+            <i className="fab fa-yelp"></i>
+          </Link>
           </li>
           <li class="list-inline-item">
           <Link to="/Twitter" class="login100-social-item bg2">
