@@ -22,8 +22,8 @@ public class AppService {
 		return woRepository.listWorkOrdersQuery();
 	}
 
-	public List<WorkOrder> getCustOrderService(Integer userId) {
-		return woRepository.listCustOrdersQuery(userId);
+	public List<WorkOrder> getCustOrderService(String userEmail) {
+		return woRepository.listCustOrdersQuery(userEmail);
 	}
 
 	public List<WorkOrder> getTechnicianOrderService(Integer techId) {

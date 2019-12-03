@@ -39,9 +39,20 @@ public class WorkOrder {
 	@Column(name="user_id")
 	private Integer userId;
 	
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="technician_id", nullable = true)
 	private Technician technician;
+	
+	@Column(name="user_email")
+	private String userEmail;
 
 	public Technician getTechnician() {
 		return technician;

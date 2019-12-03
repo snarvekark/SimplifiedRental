@@ -15,8 +15,8 @@ public interface WorkOrderDAO extends JpaRepository<WorkOrder, Integer> {
 	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND TECHNICIAN_ID IS NOT NULL", nativeQuery = true)
 	List<WorkOrder> listAssignedWorkOrdersQuery();
 
-	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND USER_ID = ?1", nativeQuery = true)
-	List<WorkOrder> listCustOrdersQuery(Integer userid);
+	@Query(value = "SELECT * FROM WORKORDER WHERE STATUS!= 'COMPLETED' AND USER_EMAIL = ?1", nativeQuery = true)
+	List<WorkOrder> listCustOrdersQuery(String userEmail);
 
 	@Query(value = "SELECT * FROM workorder WHERE STATUS!= 'COMPLETED' AND TECHNICIAN_ID = ?1", nativeQuery = true)
 	List<WorkOrder> listTechnicianOrdersQuery(Integer techId);
