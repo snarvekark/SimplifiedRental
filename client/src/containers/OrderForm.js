@@ -55,8 +55,9 @@ class OrderForm extends Component {
     try
     {
       let userData = this.state;
+      let email = localStorage.userEmail;
       let workOrder = {
-        userid: "1",
+        userEmail: email,
         description: userData.description,
         aptNum: userData.address,
         priority: userData.priority,

@@ -26,7 +26,9 @@ class OrderList
     this.setState({value: event.target.value});
   }
   getData = async () => {
-    let URL = "http://localhost:8080/api/getWorkOrders";
+    const email = localStorage.userEmail;
+    console.log("checking email"+localStorage.userEmail);
+    let URL = "http://localhost:8080/api/getCustomerOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {

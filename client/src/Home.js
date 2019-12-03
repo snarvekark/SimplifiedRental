@@ -17,6 +17,7 @@ export default withAuth(class Home extends Component {
     }
     if (authenticated && !this.state.userinfo) {
         const userinfo = await this.props.auth.getUser();
+        localStorage.userEmail = userinfo.email;
         this.setState({ userinfo });
     }
   }
@@ -33,15 +34,15 @@ export default withAuth(class Home extends Component {
       <button onClick={() => {this.props.auth.login()}}>Login</button>;
 
     const value = this.state.userinfo ? this.state.userinfo.userCategory : '/';
-    if(value === 'Customer'){
-        value = 'Dashboard';
-    }
+    // if(value === 'Customer'){
+    //     value = 'Dashboard';
+    // }
     console.log(value);
       
 
     return (
       <div>
-        <Link to={value}>Navigate to Dashboard</Link><br/>
+        <Link to={'/'+value}>Navigate to Dashboard</Link><br/>
         {button}
       </div>
     );
