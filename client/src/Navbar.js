@@ -20,17 +20,17 @@ class Navbar extends React.Component {
         return (
       <div>
         <nav className="navbar navbar-expand navbar-light bg-light static-top">
-          <a className="navbar-brand mr-1" href="/Dashboard">
+          <Link className="navbar-brand mr-1" to="/Dashboard">
             <i className="fas fa-home" />
-          </a>
+          </Link>
           <button className="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i className="fas fa-bars" />
           </button>
           <ul className="navbar-nav ml-auto ml-md-0">
             <li className="nav-item dropdown no-arrow">
-              <a className="nav-link dropdown-toggle" href="/Login" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <Link className="nav-link dropdown-toggle" to="/Login" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fas fa-user-circle fa-fw" />
-              </a>
+              </Link>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a className="dropdown-item" href="#">Settings</a>
                 <a className="dropdown-item" href="#">Activity Log</a>

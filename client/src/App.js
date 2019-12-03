@@ -21,6 +21,7 @@ import AddTechnician from './containers/AddTechnician';
 import TechOrderList from './containers/TechOrderList';
 import InprogressTasks from './containers/InprogressTasks';
 import Twitter from './containers/Twitter';
+import Yelp from './containers/Yelp';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Home from './Home';
 import Login from './Login';
@@ -61,6 +62,7 @@ class App extends React.Component
 					<Route exact path="/TechOrderList"><TechOrderList /></Route>
 					<Route exact path="/InprogressTasks"><InprogressTasks /></Route>
 					<Route exact path="/Twitter"><Twitter /></Route>
+					<Route exact path="/Yelp"><Yelp /></Route>
 					<Route exact path="/MgrOrderList" render={(props) => <MgrOrderList {...props}/>}><MgrOrderList /></Route>
 				  </Security>
   	          </Switch>

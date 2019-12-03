@@ -46,12 +46,12 @@ class Manager extends React.Component {
                                     <i className="fas fa-fw fa-shopping-cart" />
                                 </div>
                                 <div className="mr-5">Add Technician</div>
-                                <a className="card-footer text-white clearfix small z-1" href="/AddTechnician">
+                                <Link className="card-footer text-white clearfix small z-1" to="/AddTechnician">
                                     <span className="float-left">View Details</span>
                                     <span className="float-right">
                                         <i className="fas fa-angle-right" />
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ class Manager extends React.Component {
     </div>
     <footer>
     <div class="footer-copyright text-center py-3 bg-light static-bottom">© 2019 Copyright
-      <a href="http://localhost:3000"> Simplified Rental</a>
+      <Link to="http://localhost:3000"> Simplified Rental</Link>
     </div>
   </footer>
 </React.Fragment>
