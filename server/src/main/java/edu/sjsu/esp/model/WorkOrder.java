@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,38 +19,30 @@ public class WorkOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String description;
 	private String status;
 	private String priority;
-	
-	@Column(name="apt_no")
+
+	@Column(name = "apt_no")
 	private String aptNum;
-	
-	@Column(name="start_date", columnDefinition="DATETIME")
+
+	@Column(name = "start_date", columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
-	
-	@Column(name="end_date", columnDefinition="DATETIME")
+
+	@Column(name = "end_date", columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
-	
-	@Column(name="user_id")
-	private Integer userId;
-	
-	public String getUserEmail() {
-		return userEmail;
-	}
 
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+//	@Column(name="user_id")
+//	private Integer userId;
 
 	@ManyToOne
-	@JoinColumn(name="technician_id", nullable = true)
+	@JoinColumn(name = "technician_mail", referencedColumnName = "email", nullable = true)
 	private Technician technician;
-	
-	@Column(name="user_email")
+
+	@Column(name = "user_email")
 	private String userEmail;
 
 	public Technician getTechnician() {
@@ -62,14 +53,22 @@ public class WorkOrder {
 		this.technician = technician;
 	}
 
-	public Integer getUserid() {
-		return userId;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setUserid(Integer userid) {
-		this.userId = userid;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	
+
+//	public Integer getUserid() {
+//		return userId;
+//	}
+//
+//	public void setUserid(Integer userid) {
+//		this.userId = userid;
+//	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -126,6 +125,4 @@ public class WorkOrder {
 		this.endDate = endDate;
 	}
 
-	
-	
 }

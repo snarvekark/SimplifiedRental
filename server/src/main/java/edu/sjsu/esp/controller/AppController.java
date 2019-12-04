@@ -34,9 +34,9 @@ public class AppController {
     	return appService.getCustOrderService(userEmail);
     }
     
-    @GetMapping("/getTechnicianOrders/{techId}")
-    public List<WorkOrder> getTechnicianOrders(@PathVariable Integer techId){
-    	return appService.getTechnicianOrderService(techId);
+    @GetMapping("/getTechnicianOrders/{techEmail}")
+    public List<WorkOrder> getTechnicianOrders(@PathVariable String techEmail){
+    	return appService.getTechnicianOrderService(techEmail);
     }
     
     @PostMapping("/createWorkOrder")
