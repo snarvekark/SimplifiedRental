@@ -25,7 +25,7 @@ class InprogressTasks
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getAssignedWorkOrders";
+    let URL = "http://localhost:8080/api/getInProgressTechOrders/emailId";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -95,10 +95,10 @@ class InprogressTasks
                     aria-describedby="statusHelp"
                     placeholder="Update Status"
                 >
-                    <option value="inprogress" defaultValue>
-                        In Progress
+                    <option value="default" defaultValue>
+                        Select
                     </option>
-                    <option value="close">Completed</option>
+                    <option value="COMPLETED">COMPLETED</option>
                 </select> 
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.updateStatus(id)}>

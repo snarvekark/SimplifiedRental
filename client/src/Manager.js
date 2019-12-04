@@ -8,7 +8,6 @@ import {
 
 import OrderForm from './containers/OrderForm';
 import AssignOrder from './containers/MgrOrderList';
-import Login from './containers/Login';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 import Technician from './Technician';

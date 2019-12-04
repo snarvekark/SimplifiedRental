@@ -28,7 +28,7 @@ import Login from './Login';
 import Protected from './Protected';
 
 function onAuthRequired({history}) {
-	history.push('/login');
+	history.push('/Login');
 }
 
 class App extends React.Component
@@ -47,7 +47,7 @@ class App extends React.Component
                   pkce={true} >
 					<Route path='/' exact={true} component={Home} />
           			<SecureRoute path='/protected' component={Protected} />
-          			<Route path='/login' render={() => <Login baseUrl='https://dev-304860.okta.com/' />} />
+          			<Route path='/Login' render={() => <Login baseUrl='https://dev-304860.okta.com/' />} />
           			<Route path='/implicit/callback' component={ImplicitCallback} />
 					{/* <Route exact path="/"><Dashboard /></Route>  */}
 					<Route exact path="/Dashboard"><Dashboard /></Route> 	

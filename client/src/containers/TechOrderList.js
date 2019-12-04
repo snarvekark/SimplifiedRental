@@ -97,10 +97,10 @@ class TechOrderList
                     aria-describedby="statusHelp"
                     placeholder="Update Status"
                 >
-                    <option value="pending" defaultValue>
-                        Pending
+                    <option value="default" defaultValue>
+                        Select
                     </option>
-                    <option value="inprogress">In-Progress</option>
+                    <option value="IN PROGRESS">IN PROGRESS</option>
                 </select> 
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.updateStatus(id)}>

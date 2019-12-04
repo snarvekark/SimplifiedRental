@@ -9,7 +9,6 @@ import {
 import OrderForm from './containers/OrderForm';
 import OrderList from './containers/OrderList';
 import AssignOrder from './containers/AssignOrder';
-import Login from './containers/Login';
 import Navbar from './Navbar';
 import Manager from './Manager';
 import Technician from './Technician';
