@@ -29,3 +29,4 @@ export default withAuth(class Login extends Component {
       <LoginForm baseUrl={this.props.baseUrl} />;
   }
 });
+

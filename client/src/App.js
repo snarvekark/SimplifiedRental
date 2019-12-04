@@ -13,7 +13,7 @@ import Dashboard from './Dashboard';
 import Manager from './Manager';
 import Technician from './Technician';
 import Navbar from './Navbar';
-//import Login from './containers/Login';
+//import Custom_Login from './containers/Custom_Login';
 import OrderList from './containers/OrderList';
 import MgrOrderList from './containers/MgrOrderList';
 import AssignedTasks from './containers/AssignedTasks';
@@ -26,6 +26,7 @@ import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
+import LoginForm from './LoginForm';
 
 function onAuthRequired({history}) {
 	history.push('/Login');
@@ -38,7 +39,7 @@ class App extends React.Component
 			<div className="App">
 	        <Router>
 	          <div>
-			  	<Navbar />
+			  	<Navbar />  
 	            <Switch>
 				<Security issuer='https://dev-304860.okta.com/oauth2/default'
                   clientId='0oa20apu12UzBNBYH357'
@@ -46,7 +47,7 @@ class App extends React.Component
                   onAuthRequired={onAuthRequired}
                   pkce={true} >
 					<Route path='/' exact={true} component={Home} />
-          			<SecureRoute path='/protected' component={Protected} />
+          			<SecureRoute path='/Protected' component={Protected} />
           			<Route path='/Login' render={() => <Login baseUrl='https://dev-304860.okta.com/' />} />
           			<Route path='/implicit/callback' component={ImplicitCallback} />
 					{/* <Route exact path="/"><Dashboard /></Route>  */}
@@ -55,7 +56,7 @@ class App extends React.Component
 					<Route exact path="/Technician"><Technician /></Route>  
 					<Route exact path="/OrderForm"><OrderForm /></Route>
 					<Route exact path="/AssignOrder" render={(props) => <AssignOrder {...props} />}><AssignOrder /></Route>
-					{/* <Route exact path="/Login"><Login /></Route> */}
+					{/* <Route exact path="/Custom_Login"><Custom_Login /></Route> */}
 					<Route exact path="/OrderList"><OrderList /></Route>
 					<Route exact path="/AddTechnician"><AddTechnician /></Route>
 					<Route exact path="/AssignedTasks"><AssignedTasks /></Route>

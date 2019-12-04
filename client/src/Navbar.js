@@ -14,7 +14,7 @@ import Manager from './Manager';
 import Technician from './Technician';
 
 class Navbar extends React.Component {  
-
+    
     render() {
         return (
       <div>
@@ -38,7 +38,7 @@ class Navbar extends React.Component {
               </div>
             </li>
           </ul>
-          <ul className="navbar-nav ml-auto">
+          {/*<ul className="navbar-nav ml-auto">
             <li className="dropdown">
               <div class="dropdown rightnav">
                 <button class="btn btn-success dropdown-toggle btn-lg rightnav" type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -52,7 +52,7 @@ class Navbar extends React.Component {
                 </div>
               </div>
             </li>
-          </ul>
+        </ul>*/}
         </nav>
     </div>);
 }

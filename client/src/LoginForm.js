@@ -47,21 +47,47 @@ export default withAuth(class LoginForm extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input
-            id="username" type="text"
-            value={this.state.username}
-            onChange={this.handleUsernameChange} />
-          Password:
-          <input
-            id="password" type="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange} />
-        </label>
-        <input id="submit" type="submit" value="Submit" />
-      </form>
-    );
+      <div>
+          <div className="limiter">
+              <div className="container-login100" style={{backgroundImage: 'url("images/bg-01.jpg")'}}>
+                  <div className="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                  <form className="login100-form validate-form" onSubmit={this.handleSubmit}>
+                      <span className="login100-form-title p-b-49">
+                          Login
+                      </span>
+                      <div className="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                          <span className="label-input100">Username</span>
+                              <input className="input100" type="text" name="username" placeholder="Type your username" 
+                                  id="username" type="text"
+                                  value={this.state.username}
+                                  onChange={this.handleUsernameChange} />
+                          <span className="focus-input100" data-symbol="" />
+                      </div>
+                      <div className="wrap-input100 validate-input" data-validate="Password is required">
+                          <span className="label-input100">Password</span>
+                          <input className="input100" type="password" name="password" placeholder="Type your password" 
+                              id="password" type="password"
+                              value={this.state.password}
+                              onChange={this.handlePasswordChange}  />
+                          <span className="focus-input100" data-symbol="" />
+                      </div>
+                      <div className="text-right p-t-8 p-b-31">
+                          <span></span>
+                      </div>
+                      <div className="container-login100-form-btn">
+                      <div className="wrap-login100-form-btn">
+                          <div className="login100-form-bgbtn" />
+                          <button className="login100-form-btn" id="submit" type="submit" value="Submit">
+                          Login
+                          </button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+);
   }
 });
+

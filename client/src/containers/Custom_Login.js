@@ -12,7 +12,7 @@ import Validate from "./Validation/ValidateForm";
 import { Security, ImplicitCallback } from '@okta/okta-react';
 import { withAuth } from '@okta/okta-react';
 
-class Login extends React.Component
+class Custom_Login extends React.Component
 {
     
   constructor(props) {
@@ -153,4 +153,4 @@ class Login extends React.Component
     );
 }
 }
-export default Login;
+export default Custom_Login;
