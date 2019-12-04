@@ -25,7 +25,8 @@ class InprogressTasks
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getInProgressTechOrders/emailId";
+    let email = localStorage.userEmail;
+    let URL = "http://localhost:8080/api/getInProgressTechOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
