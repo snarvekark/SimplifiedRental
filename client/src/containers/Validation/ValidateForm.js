@@ -1,4 +1,4 @@
-function validateForm(event, state) {
+function ValidateForm(event, state) {
   // clear all error messages
   const inputs = document.getElementsByClassName("is-danger");
   for (let i = 0; i < inputs.length; i++) {
@@ -67,4 +67,4 @@ function validateForm(event, state) {
   return;
 }
 
-export default validateForm;
+export default ValidateForm;

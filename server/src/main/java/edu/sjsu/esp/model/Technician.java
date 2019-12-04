@@ -1,5 +1,7 @@
 package edu.sjsu.esp.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "technician")
-public class Technician {
+public class Technician implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -19,6 +21,17 @@ public class Technician {
 	
 	@Column(name="last_name")
 	private String lastName;
+	
+	@Column(name="email")
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Integer getId() {
 		return id;

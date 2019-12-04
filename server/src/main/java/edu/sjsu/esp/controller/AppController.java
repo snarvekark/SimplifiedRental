@@ -29,14 +29,19 @@ public class AppController {
     	return appService.getWorkOrderService();
     }
     
-    @GetMapping("/getCustomerOrders/{userId}")
-    public List<WorkOrder> getCustOrders(@PathVariable Integer userId){
-    	return appService.getCustOrderService(userId);
+    @GetMapping("/getCustomerOrders/{userEmail}")
+    public List<WorkOrder> getCustOrders(@PathVariable String userEmail){
+    	return appService.getCustOrderService(userEmail);
     }
     
-    @GetMapping("/getTechnicianOrders/{techId}")
-    public List<WorkOrder> getTechnicianOrders(@PathVariable Integer techId){
-    	return appService.getTechnicianOrderService(techId);
+    @GetMapping("/getTechnicianOrders/{techEmail}")
+    public List<WorkOrder> getTechnicianOrders(@PathVariable String techEmail){
+    	return appService.getTechnicianOrderService(techEmail);
+    }
+    
+    @GetMapping("/getInProgressTechOrders/{techEmail}")
+    public List<WorkOrder> getInProgressTechOrders(@PathVariable String techEmail){
+    	return appService.getInProgressTechOrderService(techEmail);
     }
     
     @PostMapping("/createWorkOrder")
@@ -49,8 +54,18 @@ public class AppController {
     	return appService.updateWorkOrderService(newWorkOrder, id);
     }
     
+    @PutMapping("/updateStatusWorkOrder/{id}")
+    public WorkOrder updateStatusWorkOrder(@RequestBody WorkOrder newWorkOrder, @PathVariable Integer id) {
+    	return appService.updateStatusWorkOrderService(newWorkOrder, id);
+    }
+    
     @GetMapping("/getTechnicians")
     public List<Technician> getTechnicians(){
     	return appService.getTechnicianService();
+    }
+    
+    @GetMapping("/getAssignedWorkOrders")
+    public List<WorkOrder> getAssignedWorkOrders(){
+    	return appService.getAssignedWorkOrderService();
     }
 }

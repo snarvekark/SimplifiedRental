@@ -1,0 +1,42 @@
+body, html {
+    height: 100%;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("../images/main.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .rightnav
+  {
+    padding-right: 30px !important;
+  }
+
+  .twitter-timeline {
+    max-width: 100%;
+    max-height: 1000px;
+  }
+  .fa {
+    font-size: 25px;
+    color: #FFFFFF;
+  }
+  .panel-title {
+   font-size: 25px; 
+   color: #FFFFFF;
+   font-family: 'Open Sans', sans-serif;
+  }
+  .panel-heading {
+   background-color: #1da1f2 !important;
+   color: #1da1f2 !important;
+  }
+  .panel {
+   margin-top: 25px;
+  }
