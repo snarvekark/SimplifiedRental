@@ -73,9 +73,14 @@ class OrderForm extends Component {
           body: JSON.stringify(workOrder)
         }).then(response => {
           console.log("Successful" + response);
+          this.props.history.push("/OrderList");
+        }).catch(error=> {
+          console.log("Error" + error);
+          this.props.history.push("/OrderList");
         });
+
         console.log("You submitted the form");
-        this.props.history.push("/OrderList");
+        
     }
     catch (error) {
       let err = null;
