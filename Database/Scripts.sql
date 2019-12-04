@@ -51,7 +51,9 @@ CREATE TABLE `technician` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Index` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,7 +63,7 @@ CREATE TABLE `technician` (
 
 LOCK TABLES `technician` WRITE;
 /*!40000 ALTER TABLE `technician` DISABLE KEYS */;
-INSERT INTO `technician` VALUES (1,'Mike','Technician'),(2,'Jack','Technician');
+INSERT INTO `technician` VALUES (1,'Mike','Technician','knightrider.bits.2015@gmail.com'),(2,'Jack','Technician','knightrider.bits@gmail.com');
 /*!40000 ALTER TABLE `technician` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,13 +108,12 @@ CREATE TABLE `workorder` (
   `priority` varchar(255) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `technician_id` int(11) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
+  `technician_mail` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK2iww3oftslcro61vouh2gqj4f` (`technician_id`),
-  CONSTRAINT `FK2iww3oftslcro61vouh2gqj4f` FOREIGN KEY (`technician_id`) REFERENCES `technician` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk-technician-email_idx` (`technician_mail`),
+  CONSTRAINT `workorder_ibfk_1` FOREIGN KEY (`technician_mail`) REFERENCES `technician` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +122,7 @@ CREATE TABLE `workorder` (
 
 LOCK TABLES `workorder` WRITE;
 /*!40000 ALTER TABLE `workorder` DISABLE KEYS */;
-INSERT INTO `workorder` VALUES (1,'10','workorder1',NULL,'HIGH',NULL,'COMPLETED',1,1,'jahnavi.rangu@sjsu.edu'),(2,'10','workOrder3 Test','2019-11-16 23:59:59','HIGH','2019-11-07 23:59:59','PENDING',1,2,'jahnavi.rangu@sjsu.edu'),(3,NULL,'10 apt, Kitchen',NULL,'High',NULL,NULL,1,1,''),(4,'','',NULL,'High',NULL,NULL,1,1,''),(5,'asdasd','dasdsad',NULL,'High',NULL,'PENDING',1,NULL,'jahnavi.rangu@sjsu.edu'),(6,'as','asa',NULL,'High',NULL,'PENDING',1,NULL,'jahnavi.rangu@sjsu.edu'),(7,'th ','new workorder',NULL,'High',NULL,'PENDING',1,1,'jahnavi.rangu@sjsu.edu'),(8,'10 apt','',NULL,'',NULL,'PENDING',1,NULL,'jahnavi.rangu@sjsu.edu'),(9,'10 apt','wo 3',NULL,'low',NULL,'PENDING',1,1,'jahnavi.rangu@sjsu.edu'),(10,'15 apt','WorkOrder check email',NULL,'high',NULL,'PENDING',NULL,NULL,'jahnavi.rangu@sjsu.edu');
+INSERT INTO `workorder` VALUES (1,'10','workorder1',NULL,'HIGH',NULL,'COMPLETED','jahnavi.rangu@sjsu.edu','knightrider.bits.2015@gmail.com'),(2,'10','workOrder3 Test','2019-11-16 23:59:59','HIGH','2019-11-07 23:59:59','PENDING','jahnavi.rangu@sjsu.edu','knightrider.bits.2015@gmail.com'),(5,'asdasd','dasdsad',NULL,'High',NULL,'PENDING','jahnavi.rangu@sjsu.edu','knightrider.bits.2015@gmail.com'),(11,'20 apt','Leak under sink',NULL,'high',NULL,'PENDING','knightrider.bits.2015@gmail.com','knightrider.bits.2015@gmail.com');
 /*!40000 ALTER TABLE `workorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-03 13:35:53
+-- Dump completed on 2019-12-03 20:49:05
