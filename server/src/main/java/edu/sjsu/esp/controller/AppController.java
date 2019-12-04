@@ -39,6 +39,11 @@ public class AppController {
     	return appService.getTechnicianOrderService(techEmail);
     }
     
+    @GetMapping("/getInProgressTechOrders/{techEmail}")
+    public List<WorkOrder> getInProgressTechOrders(@PathVariable String techEmail){
+    	return appService.getInProgressTechOrderService(techEmail);
+    }
+    
     @PostMapping("/createWorkOrder")
     public WorkOrder createWorkOrder(@RequestBody WorkOrder newWorkOrder) {
     	return appService.createWorkOrderService(newWorkOrder);
