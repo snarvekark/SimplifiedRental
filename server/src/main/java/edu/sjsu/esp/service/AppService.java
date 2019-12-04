@@ -29,7 +29,11 @@ public class AppService {
 	public List<WorkOrder> getTechnicianOrderService(String techEmail) {
 		return woRepository.listTechnicianOrdersQuery(techEmail);
 	}
-
+	
+	public List<WorkOrder> getInProgressTechOrderService(String techEmail) {
+		return woRepository.listInProgressOrdersQuery(techEmail);
+	}
+	
 	public WorkOrder createWorkOrderService(WorkOrder newWorkOrder) {
 		return woRepository.save(newWorkOrder);
 	}
