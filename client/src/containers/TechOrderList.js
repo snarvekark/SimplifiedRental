@@ -26,7 +26,8 @@ class TechOrderList
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getWorkOrders";
+    let email = localStorage.userEmail;
+    let URL = "http://localhost:8080/api/getTechnicianOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
