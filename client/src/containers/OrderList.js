@@ -49,10 +49,10 @@ class OrderList
               <td>{priority}</td>
               <td>{description}</td>
               <td>{status}</td>
-              <td><button className="btn btn-default btn-light" onClick={() => this.callDeleteApi(response.id)}>
+              {/* <td><button className="btn btn-default btn-light" onClick={() => this.callDeleteApi(response.id)}>
                   Delete
                 </button>
-              </td>
+              </td> */}
             </tr>
         )
     })
@@ -69,14 +69,14 @@ class OrderList
       <div className="container">
         <div className="container-fluid">
           <h1>Order List</h1>
-          <table class="table table-bordered table-hover">
-            <thead class="thead-dark">
+          <table className="table table-bordered table-hover">
+            <thead className="thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Priority</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col"></th>
+                {/* <th scope="col"></th> */}
               </tr>
             </thead>
             <tbody>
@@ -85,7 +85,7 @@ class OrderList
           </table>
         </div>
         <div className="container-fluid">
-          <table class="table table-borderless">
+          <table className="table table-borderless">
             <tbody>
               <tr>
                 <td>
