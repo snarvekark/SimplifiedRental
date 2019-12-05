@@ -52,7 +52,7 @@ class InprogressTasks
           id: this.state.updatedStatus
         }
       };
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+      fetch("http://localhost:8080/api/updateStatusWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateStatus),
           headers: {
