@@ -159,6 +159,9 @@ class Payment extends Component {
               Submit
             </button>
             </div>
+            <div className="form-group col-md-1">
+              <Link className="btn btn-primary btn-lg" to='/Dashboard'>My Dashboard</Link>
+            </div>
           </form>
         </div>
       </div>

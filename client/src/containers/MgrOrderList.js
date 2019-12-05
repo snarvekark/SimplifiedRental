@@ -173,6 +173,17 @@ class MgrOrderList
             </tbody>
           </table>
         </div>
+        <div className="container-fluid">
+          <table className="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/Manager'>My Dashboard</Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       </form>
 

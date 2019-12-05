@@ -135,6 +135,20 @@ class TechOrderList
             </tbody>
           </table>
         </div>
+        <div className="container-fluid">
+          <table className="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/InProgressTasks'>Open Tasks</Link>
+                </td>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/Technician'>My Dashboard</Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       </form>
 

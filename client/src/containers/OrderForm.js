@@ -170,8 +170,8 @@ class OrderForm extends Component {
                     <option value="default" defaultValue>Select</option>  
                     <option value="low">Low</option>
                     <option value="high">High</option>
-                    <option value="high">Urgent</option>
-                    <option value="high">Cosmetic</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="cosmetic">Cosmetic</option>
                   </select>
               </div>
             </div>
