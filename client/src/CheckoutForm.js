@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CardElement, injectStripe, Elements, StripeProvider } from 'react-stripe-elements';
+import { Link, withRouter } from "react-router-dom";
 import {
     CardNumberElement,
     CardExpiryElement,
@@ -16,22 +17,24 @@ class CheckoutForm extends Component {
         this.submit = this.submit.bind(this);
     }
 
-        async submit(ev) {
-            let token = await this.props.stripe.createToken({ name: "Name" });
-            console.log("token" + JSON.stringify(token));
-            console.log(this.state.amount);
-            let response = await fetch("http://localhost:8081/payments/charge", {
-                method: "POST",
-                mode: 'no-cors',
-                headers: { "Content-Type": "text/plain", "token": token.id, "amount": this.state.amount },
-                body: token.id
-            }).then(response => {
-                console.log("success" + JSON.stringify(response))
-                alert("Payment is successful")
-            });
-    
-            //if (response.ok) console.log("Purchase Complete!")
-        }
+    async submit(ev) {
+        ev.preventDefault();
+        let token = await this.props.stripe.createToken({ name: "Name" });
+        console.log("token" + JSON.stringify(token));
+        console.log(this.state.amount);
+        let response = await fetch("http://localhost:8081/payments/charge", {
+            method: "POST",
+            mode: 'no-cors',
+            headers: { "Content-Type": "text/plain", "token": token.id, "amount": this.state.amount },
+            body: token.id
+        }).then(response => {
+            console.log("success" + JSON.stringify(response))
+            alert("Payment is successful");
+        });
+
+        //if (response.ok) console.log("Purchase Complete!")
+    }
+
     onInputChange = event => {
         this.setState({
          amount : event.target.value
@@ -39,13 +42,14 @@ class CheckoutForm extends Component {
         
     }
     render() {
+        
         return (
         <div>
             <div className="container">
                 <h2 style={{marginTop: '30px'}} className="text-center">Pay your Bills</h2>
-                <FormErrors formerrors={this.state.errors} />
+                
                 <div class="d-flex justify-content-center align-items-center container">
-                    <form className="container-fluid" onSubmit={this.submit}>
+                    <form className="container-fluid">
                         <div className="row">
                             <div className="cardsection">
                                 <label for="number">
@@ -63,8 +67,19 @@ class CheckoutForm extends Component {
                         </div>
                         <div className="cardsection">
                             <p className="cardsection">Enter your card details to pay rent</p>
-                            <CardElement className="StripeElement" /> 
+                            <CardElement /> 
                             <button className="btn btn-primary btn-lg" onClick={this.submit}>Pay</button>
+                        </div>
+                        <div className="container-fluid">
+                                <table className="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <Link className="btn btn-primary btn-lg" to='/Dashboard'>My Dashboard</Link>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                         </div>
                     </form>
                  </div>
