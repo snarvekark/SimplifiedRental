@@ -6,8 +6,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@okta/okta-react": "^1.2.3",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-cognito": "^1.5.4",
@@ -21,7 +19,6 @@
     "react-twitter-embed": "^3.0.3",
     "redux": "^4.0.4",
     "simple-react-validator": "^1.2.4",
-    "stripe": "^7.14.0",
     "web-pack": "^1.0.0"
   },
   "scripts": {
