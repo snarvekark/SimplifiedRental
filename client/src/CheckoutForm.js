@@ -16,22 +16,22 @@ class CheckoutForm extends Component {
         this.submit = this.submit.bind(this);
     }
 
-    async submit(ev) {
-        let token = await this.props.stripe.createToken({ name: "Name" });
-        console.log("token" + JSON.stringify(token));
-        console.log(this.state.amount);
-        let response = await fetch("http://localhost:8081/payments/charge", {
-            method: "POST",
-            mode: 'no-cors',
-            headers: { "Content-Type": "text/plain", "token": token.id, "amount": this.state.amount },
-            body: token.id
-        }).then(response => {
-            console.log("success" + JSON.stringify(response))
-            alert("Payment is successful")
-        });
-
-        //if (response.ok) console.log("Purchase Complete!")
-    }
+        async submit(ev) {
+            let token = await this.props.stripe.createToken({ name: "Name" });
+            console.log("token" + JSON.stringify(token));
+            console.log(this.state.amount);
+            let response = await fetch("http://localhost:8081/payments/charge", {
+                method: "POST",
+                mode: 'no-cors',
+                headers: { "Content-Type": "text/plain", "token": token.id, "amount": this.state.amount },
+                body: token.id
+            }).then(response => {
+                console.log("success" + JSON.stringify(response))
+                alert("Payment is successful")
+            });
+    
+            //if (response.ok) console.log("Purchase Complete!")
+        }
     onInputChange = event => {
         this.setState({
          amount : event.target.value
@@ -39,24 +39,6 @@ class CheckoutForm extends Component {
         
     }
     render() {
-        const createOptions = () => {
-            return {
-              style: {
-                base: {
-                  fontSize: '18px', 
-                  color: '#424770',
-                  letterSpacing: '0.025em',
-                  fontFamily: 'Source Code Pro, monospace',
-                  '::placeholder': {
-                    color: '#aab7c4',
-                  },
-                },
-                invalid: {
-                  color: '#9e2146',
-                },
-              },
-            };
-          };
         return (
         <div>
             <div className="container">
@@ -81,7 +63,7 @@ class CheckoutForm extends Component {
                         </div>
                         <div className="cardsection">
                             <p className="cardsection">Enter your card details to pay rent</p>
-                            <CardElement {...createOptions()} className="StripeElement" /> 
+                            <CardElement className="StripeElement" /> 
                             <button className="btn btn-primary btn-lg" onClick={this.submit}>Pay</button>
                         </div>
                     </form>
