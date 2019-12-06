@@ -116,7 +116,7 @@ class MgrOrderList
 
   renderTableData() {
     return this.state.orderList.map((response) => {
-       const { id, priority, description, status, startDate} = response
+       const { id, priority, description, status, userEmail} = response
 
         return (
             <tr key={id}>
@@ -124,7 +124,7 @@ class MgrOrderList
               <td>{priority}</td>
               <td>{description}</td>
               <td>{status}</td>
-              <td>{startDate}</td>
+              <td>{userEmail}</td>
               <td>
                 <select
                     className="form-control"
@@ -163,7 +163,7 @@ class MgrOrderList
                 <th scope="col">Priority</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col">Start Date</th>
+                <th scope="col">User Email</th>
                 <th scope="col">Technician</th>
                 <th scope="col"></th>
               </tr>
