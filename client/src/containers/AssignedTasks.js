@@ -16,7 +16,7 @@ class AssignedTasks
        technician: "",
        technicianList: [],
        selectedTechnician: ""
-   } 
+   }
   }
 
   componentWillMount() {
@@ -28,7 +28,7 @@ class AssignedTasks
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getAssignedWorkOrders";
+    let URL = "http://18.224.193.99:8080/api/getAssignedWorkOrders";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -44,11 +44,11 @@ class AssignedTasks
     this.state.selectedTechnician = event.target.value;
   };
 
- 
+
   renderTableData() {
     return this.state.orderList.map((response) => {
        const { id, priority, description, status, startDate, technician } = response
-    
+
         return (
             <tr key={id}>
               <td>{id}</td>
@@ -101,7 +101,7 @@ class AssignedTasks
         </div>
       </div>
       </form>
-    
+
     )
   }
 }

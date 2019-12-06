@@ -22,7 +22,7 @@ class OrderForm extends Component {
           blankfield: false
         }
     };
-    
+
   }
 
   clearErrorState = () => {
@@ -37,7 +37,7 @@ class OrderForm extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-    
+
   }
 
 
@@ -65,7 +65,7 @@ class OrderForm extends Component {
       };
       console.log("Inside Handle Submit");
       console.log(JSON.stringify(workOrder));
-      fetch("http://localhost:8080/api/createWorkOrder", {
+      fetch("http://18.224.193.99:8080/api/createWorkOrder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -80,7 +80,7 @@ class OrderForm extends Component {
         });
 
         console.log("You submitted the form");
-        
+
     }
     catch (error) {
       let err = null;
@@ -91,8 +91,8 @@ class OrderForm extends Component {
         }
       });
     }
-  } 
-    
+  }
+
 
   handleClearForm(e) {
     e.preventDefault();
@@ -109,7 +109,7 @@ class OrderForm extends Component {
       <div>
         <div className="container">
           <h2 style={{marginTop: '30px'}}>Customer Orders</h2>
-        
+
         <FormErrors formerrors={this.state.errors} />
         <div class="d-flex justify-content-center align-items-center container">
           <form className="container-fluid" onSubmit={this.handleSubmit}>
@@ -118,8 +118,8 @@ class OrderForm extends Component {
               <label for="name">
                   Name
                 </label>
-                <input 
-                  className="form-control" 
+                <input
+                  className="form-control"
                   type="text"
                   id="name"
                   aria-describedby="nameHelp"
@@ -134,8 +134,8 @@ class OrderForm extends Component {
               <label for="adress">
                   Address
                 </label>
-                <input 
-                  className="form-control" 
+                <input
+                  className="form-control"
                   type="text"
                   id="address"
                   aria-describedby="addressHelp"
@@ -150,7 +150,7 @@ class OrderForm extends Component {
               <label for="description">
                   Description
                 </label>
-                <textarea className="form-control" 
+                <textarea className="form-control"
                   type="textArea"
                   id="description"
                   aria-describedby="descriptionHelp"
@@ -165,9 +165,9 @@ class OrderForm extends Component {
                 <label for="priority">
                   Prority
                 </label>
-                  <select className="form-control" id="priority" value={this.state.value} onChange={this.onInputChange} 
+                  <select className="form-control" id="priority" value={this.state.value} onChange={this.onInputChange}
                     aria-describedby="priorityHelp" placeholder="Select Priority">
-                    <option value="default" defaultValue>Select</option>  
+                    <option value="default" defaultValue>Select</option>
                     <option value="low">Low</option>
                     <option value="high">High</option>
                     <option value="urgent">Urgent</option>
