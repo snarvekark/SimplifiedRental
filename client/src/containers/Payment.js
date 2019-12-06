@@ -10,20 +10,16 @@ import ValidateForm from './Validation/ValidateForm';
 import OrderList from './OrderList';
 
 class Payment extends Component {
+  
   constructor(props) {
     super(props);
-
-    this.state = {
-        number: "",
-        month: "",
-        year: "",
-        cvv: "",
-        errors: {
-          blankfield: false
-        }
-    };
-    
+    this.submit = this.submit.bind(this);
   }
+
+  async submit(ev) {
+    // User clicked submit
+  }
+
 
   clearErrorState = () => {
     this.setState({
@@ -77,7 +73,7 @@ class Payment extends Component {
     this.setState({
         number: "",
         month: "",
-        year: [],
+        year: "",
         cvv: ""
   });
   }
