@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
                 <i className="fas fa-fw fa-life-ring" />
               </div>
               <div className="mr-5">Bill Payments</div>
-              <Link className="card-footer text-white clearfix small z-1" to="/Payment">
+              <Link className="card-footer text-white clearfix small z-1" to="/CheckoutForm">
                 <span className="float-left">View Details</span>
                 <span className="float-right">
                     <i className="fas fa-angle-right" />
