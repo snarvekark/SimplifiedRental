@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { CardElement, injectStripe, Elements, StripeProvider } from 'react-stripe-elements';
+import {
+    CardNumberElement,
+    CardExpiryElement,
+    CardCVCElement
+  } from 'react-stripe-elements';
+  
+import FormErrors from './containers/Validation/FormErrors';
+import ValidateForm from './containers/Validation/ValidateForm';
 
 class CheckoutForm extends Component {
     constructor(props) {
@@ -31,31 +39,56 @@ class CheckoutForm extends Component {
         
     }
     render() {
+        const createOptions = () => {
+            return {
+              style: {
+                base: {
+                  fontSize: '18px', 
+                  color: '#424770',
+                  letterSpacing: '0.025em',
+                  fontFamily: 'Source Code Pro, monospace',
+                  '::placeholder': {
+                    color: '#aab7c4',
+                  },
+                },
+                invalid: {
+                  color: '#9e2146',
+                },
+              },
+            };
+          };
         return (
-
-            <div className="example">
-                <div className="form-group col-md-3">
-                    <label for="number">
-                        Amount
-                </label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="number"
-                        aria-describedby="numberHelp"
-                        placeholder="Enter Amount"
-                        // value={this.state.number}
-                        onChange={this.onInputChange}
-                    />
-                </div>
-                <div className="checkout">
-                    <p>Enter your card details to pay rent</p>
-                    <CardElement />
-                    <button onClick={this.submit}>Pay</button>
-                </div>
+        <div>
+            <div className="container">
+                <h2 style={{marginTop: '30px'}} className="text-center">Pay your Bills</h2>
+                <FormErrors formerrors={this.state.errors} />
+                <div class="d-flex justify-content-center align-items-center container">
+                    <form className="container-fluid" onSubmit={this.submit}>
+                        <div className="row">
+                            <div className="cardsection">
+                                <label for="number">
+                                    Amount
+                                </label>
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    id="number"
+                                    aria-describedby="numberHelp"
+                                    placeholder="Enter Amount"
+                                    onChange={this.onInputChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="cardsection">
+                            <p className="cardsection">Enter your card details to pay rent</p>
+                            <CardElement {...createOptions()} className="StripeElement" /> 
+                            <button className="btn btn-primary btn-lg" onClick={this.submit}>Pay</button>
+                        </div>
+                    </form>
+                 </div>
             </div>
-
-        );
+        </div>
+);
     }
 }
 

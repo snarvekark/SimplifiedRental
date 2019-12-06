@@ -73,7 +73,7 @@ class App extends React.Component
 					<Route exact path="/MgrOrderList" render={(props) => <MgrOrderList {...props}/>}><MgrOrderList /></Route>
 					<StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
 						<Elements>
-							<Route exact path="/Payment"><CheckoutForm /></Route>
+							<Route exact path="/CheckoutForm"><CheckoutForm /></Route>
           				</Elements>        
       				</StripeProvider>
 				  </Security>
