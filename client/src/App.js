@@ -28,12 +28,9 @@ import Login from './Login';
 import Protected from './Protected';
 import LoginForm from './LoginForm';
 import Payment from './containers/Payment';
-<<<<<<< HEAD
 import Contact from './containers/Contact';
-=======
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
->>>>>>> 62b2670a4854193ca8e31d6f4bf6649f4684f9db
 
 function onAuthRequired({history}) {
 	history.push('/Login');
