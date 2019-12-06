@@ -112,27 +112,28 @@ class Dashboard extends React.Component {
       </div>
     </div>
   </div>
-</div>
-<footer class="page-footer font-small green fixed-bottom static-bottom">
-      <div class="container">
-        <ul class="list-unstyled list-inline text-center">
-          <li class="list-inline-item">
-          <Link className="login100-social-item bg3" to="/Yelp">
-            <i className="fab fa-yelp"></i>
-          </Link>
-          </li>
-          <li class="list-inline-item">
-          <Link to="/Twitter" class="login100-social-item bg2">
-            <i class="fab fa-twitter"></i>
-          </Link>
-          </li>
-        </ul>
-      </div>
-    <div class="footer-copyright text-center py-3">© 2019 Copyright
-      <Link to="http://18.224.193.99:3000"> Simplified Rental</Link>
-    </div>
-  </footer>
-  </React.Fragment>
+</div> 
+<footer class="page-footer font-small green fixed-bottom static-bottom">     
+  <div class="container">
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+      <Link className="login100-social-item bg3" to="/Yelp">
+        <i className="fab fa-yelp"></i>
+      </Link>
+      </li>
+      <li class="list-inline-item">
+      <Link to="/Twitter" class="login100-social-item bg2">
+        <i class="fab fa-twitter"></i>
+      </Link>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright
+    <Link to="http://18.224.193.99:3000"> Simplified Rental</Link>
+    <Link to="/Contact"> / Contact Us</Link>
+  </div>
+</footer>
+</React.Fragment>
    );
 }
 }
