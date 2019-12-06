@@ -24,11 +24,11 @@ class MgrOrderList
        technician: "",
        technicianList: [],
        selectedTechnician: ""
-   } 
+   }
   }
 
-  getTechniciansList = async () => {    
-    let URL = "http://localhost:8080/api/getTechnicians";
+  getTechniciansList = async () => {
+    let URL = "http://18.224.193.99:8080/api/getTechnicians";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -63,7 +63,7 @@ class MgrOrderList
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getWorkOrders";
+    let URL = "http://18.224.193.99:8080/api/getWorkOrders";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -85,7 +85,7 @@ class MgrOrderList
           id: this.state.selectedTechnician
         }
       };
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+      fetch("http://18.224.193.99:8080/api/updateWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateOrder),
           headers: {
@@ -113,11 +113,11 @@ class MgrOrderList
     this.state.selectedTechnician = event.target.value;
   };
 
- 
+
   renderTableData() {
     return this.state.orderList.map((response) => {
        const { id, priority, description, status, startDate} = response
-    
+
         return (
             <tr key={id}>
               <td>{id}</td>
@@ -138,7 +138,7 @@ class MgrOrderList
                         Select
                     </option>
                     {this.renderDropDown()}
-                </select> 
+                </select>
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.assignTechnician(id)}>
                 Assign Technician

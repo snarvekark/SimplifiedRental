@@ -24,7 +24,7 @@ class AssignOrder extends Component {
         description: "",
         technicianList: [],
         selectedTechnician: "",
-        
+
       },
     };
     this.validator = new SimpleReactValidator();
@@ -33,8 +33,8 @@ class AssignOrder extends Component {
   }
 
   getTechniciansList = async () => {
-    
-    let URL = "http://localhost:8080/api/getTechnicians";
+
+    let URL = "http://18.224.193.99:8080/api/getTechnicians";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -85,7 +85,7 @@ class AssignOrder extends Component {
     console.log("Inside Handle Submit");
     if (this.validator.allValid()) {
       console.log("You submitted the form");
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+      fetch("http://18.224.193.99:8080/api/updateWorkOrder/" + orderId, {
         method: "PUT",
         body: JSON.stringify(updateOrder),
         headers: {

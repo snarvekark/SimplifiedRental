@@ -16,7 +16,7 @@ class OrderList
     super(props);
     this.state = {
        orderList : []
-   } 
+   }
   }
   componentWillMount() {
     this.getData();
@@ -28,7 +28,7 @@ class OrderList
   getData = async () => {
     const email = localStorage.userEmail;
     console.log("checking email"+localStorage.userEmail);
-    let URL = "http://localhost:8080/api/getCustomerOrders/"+email;
+    let URL = "http://18.224.193.99:8080/api/getCustomerOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -62,7 +62,7 @@ class OrderList
     console.log("User can delete the request if problem no longer persits");
     window.confirm("Proceed to delete the request");
   }
-  
+
  render () {
     return (
       <form>

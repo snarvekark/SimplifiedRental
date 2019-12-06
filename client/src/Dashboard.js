@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router, 
+  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
@@ -15,7 +15,7 @@ import Technician from './Technician';
 import { Link, withRouter } from "react-router-dom";
 
 
-class Dashboard extends React.Component {  
+class Dashboard extends React.Component {
     render() {
         return (
 <React.Fragment>
@@ -129,7 +129,7 @@ class Dashboard extends React.Component {
         </ul>
       </div>
     <div class="footer-copyright text-center py-3">© 2019 Copyright
-      <Link to="http://localhost:3000"> Simplified Rental</Link>
+      <Link to="http://18.224.193.99:3000"> Simplified Rental</Link>
     </div>
   </footer>
   </React.Fragment>
