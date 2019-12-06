@@ -10,16 +10,20 @@ import ValidateForm from './Validation/ValidateForm';
 import OrderList from './OrderList';
 
 class Payment extends Component {
-  
   constructor(props) {
     super(props);
-    this.submit = this.submit.bind(this);
-  }
 
-  async submit(ev) {
-    // User clicked submit
+    this.state = {
+        number: "",
+        month: "",
+        year: "",
+        cvv: "",
+        errors: {
+          blankfield: false
+        }
+    };
+    
   }
-
 
   clearErrorState = () => {
     this.setState({
