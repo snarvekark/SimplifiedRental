@@ -48,9 +48,7 @@ class InprogressTasks
     try
     {
       let updateStatus = {
-        Status: {
-          id: this.state.updatedStatus
-        }
+        status:"COMPLETED"
       };
       fetch("http://18.224.193.99:8080/api/updateStatusWorkOrder/" + orderId, {
           method: "PUT",

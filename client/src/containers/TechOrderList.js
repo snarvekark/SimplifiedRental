@@ -45,11 +45,9 @@ class TechOrderList
     try
     {
       let updateStatus = {
-        Status: {
-          id: this.state.updatedStatus
-        }
-      };
-      fetch("http://18.224.193.99:8080/api/updateWorkOrder/" + orderId, {
+        status: "IN PROGRESS"
+      }
+      fetch("http://18.224.193.99:8080/api/updateStatusWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateStatus),
           headers: {
