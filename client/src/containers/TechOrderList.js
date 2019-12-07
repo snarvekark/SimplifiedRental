@@ -14,7 +14,7 @@ class TechOrderList
     this.state = {
        orderList : [],
        updatedStatus : ""
-   } 
+   }
   }
 
   componentWillMount() {
@@ -27,7 +27,7 @@ class TechOrderList
 
   getData = async () => {
     let email = localStorage.userEmail;
-    let URL = "http://localhost:8080/api/getTechnicianOrders/"+email;
+    let URL = "http://18.224.193.99:8080/api/getTechnicianOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -45,11 +45,9 @@ class TechOrderList
     try
     {
       let updateStatus = {
-        Status: {
-          id: this.state.updatedStatus
-        }
-      };
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+        status: "IN PROGRESS"
+      }
+      fetch("http://18.224.193.99:8080/api/updateStatusWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateStatus),
           headers: {
@@ -77,11 +75,11 @@ class TechOrderList
     this.state.updatedStatus = event.target.value;
   };
 
- 
+
   renderTableData() {
     return this.state.orderList.map((response) => {
        const { id, priority, description, status, startDate} = response
-    
+
         return (
             <tr key={id}>
               <td>{id}</td>
@@ -101,7 +99,7 @@ class TechOrderList
                         Select
                     </option>
                     <option value="IN PROGRESS">IN PROGRESS</option>
-                </select> 
+                </select>
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.updateStatus(id)}>
                 Open Case
@@ -132,6 +130,20 @@ class TechOrderList
             </thead>
             <tbody>
               {this.renderTableData()}
+            </tbody>
+          </table>
+        </div>
+        <div className="container-fluid">
+          <table className="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/InProgressTasks'>Open Tasks</Link>
+                </td>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/Technician'>My Dashboard</Link>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

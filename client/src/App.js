@@ -27,6 +27,10 @@ import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
 import LoginForm from './LoginForm';
+import Payment from './containers/Payment';
+import Contact from './containers/Contact';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 
 function onAuthRequired({history}) {
 	history.push('/Login');
@@ -64,7 +68,14 @@ class App extends React.Component
 					<Route exact path="/InprogressTasks"><InprogressTasks /></Route>
 					<Route exact path="/Twitter"><Twitter /></Route>
 					<Route exact path="/Yelp"><Yelp /></Route>
+					<Route exact path="/Contact"><Contact /></Route>
+					{/* <Route exact path="/Payment"><Payment /></Route> */}
 					<Route exact path="/MgrOrderList" render={(props) => <MgrOrderList {...props}/>}><MgrOrderList /></Route>
+					<StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+						<Elements>
+							<Route exact path="/CheckoutForm"><CheckoutForm /></Route>
+          				</Elements>        
+      				</StripeProvider>
 				  </Security>
   	          </Switch>
 	          </div>

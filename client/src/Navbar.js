@@ -19,7 +19,7 @@ class Navbar extends React.Component {
         return (
       <div>
         <nav className="navbar navbar-expand navbar-light bg-light static-top">
-          <Link className="navbar-brand mr-1" to="/Dashboard">
+          <Link className="navbar-brand mr-1" to="/Login">
             <i className="fas fa-home" />
           </Link>
           <button className="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">

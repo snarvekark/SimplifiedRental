@@ -13,7 +13,7 @@ class InprogressTasks
        orderList : [],
        status: "",
        updatedStatus: ""
-   } 
+   }
   }
 
   componentWillMount() {
@@ -25,7 +25,8 @@ class InprogressTasks
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getInProgressTechOrders/emailId";
+    let email = localStorage.userEmail;
+    let URL = "http://18.224.193.99:8080/api/getInProgressTechOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -47,11 +48,9 @@ class InprogressTasks
     try
     {
       let updateStatus = {
-        Status: {
-          id: this.state.updatedStatus
-        }
+        status:"COMPLETED"
       };
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+      fetch("http://18.224.193.99:8080/api/updateStatusWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateStatus),
           headers: {
@@ -75,11 +74,11 @@ class InprogressTasks
       }
   };
 
- 
+
   renderTableData() {
     return this.state.orderList.map((response) => {
        const { id, priority, description, status, startDate } = response
-    
+
         return (
             <tr key={id}>
               <td>{id}</td>
@@ -99,7 +98,7 @@ class InprogressTasks
                         Select
                     </option>
                     <option value="COMPLETED">COMPLETED</option>
-                </select> 
+                </select>
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.updateStatus(id)}>
                 Close Order
@@ -149,7 +148,7 @@ class InprogressTasks
         </div>
       </div>
       </form>
-    
+
     )
   }
 }

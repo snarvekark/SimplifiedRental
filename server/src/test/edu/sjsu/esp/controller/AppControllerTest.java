@@ -44,14 +44,14 @@ public class AppControllerTest {
 		List<WorkOrder> list = new ArrayList<>();
 		WorkOrder workOrder = new WorkOrder();
 		workOrder.setId(1);
-		workOrder.setUserid(1);
+		workOrder.setUserEmail("abc@sjsu.edu");
 		list.add(workOrder);
 		WorkOrder workOrder2 = new WorkOrder();
 		workOrder2.setId(2);
-		workOrder2.setUserid(1);
+		workOrder2.setUserEmail("abc@sjsu.edu");
 		list.add(workOrder2);
-		when(appService.getCustOrderService(1)).thenReturn(list);
-		Assert.assertEquals(appController.getCustOrders(1), list);
+		when(appService.getCustOrderService("abc@sjsu.edu")).thenReturn(list);
+		Assert.assertEquals(appController.getCustOrders("abc@sjsu.edu"), list);
 	}
 
 	@Test
@@ -61,10 +61,11 @@ public class AppControllerTest {
 		workOrder.setId(1);
 		Technician t = new Technician();
 		t.setId(1);
+		t.setEmail("tech@sjsu.edu");
 		workOrder.setTechnician(t);
 		list.add(workOrder);
-		when(appService.getTechnicianOrderService(1)).thenReturn(list);
-		Assert.assertEquals(appController.getTechnicianOrders(1), list);
+		when(appService.getTechnicianOrderService("tech@sjsu.edu")).thenReturn(list);
+		Assert.assertEquals(appController.getTechnicianOrders("tech@sjsu.edu"), list);
 	}
 
 	@Test

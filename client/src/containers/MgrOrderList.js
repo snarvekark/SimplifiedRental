@@ -24,11 +24,11 @@ class MgrOrderList
        technician: "",
        technicianList: [],
        selectedTechnician: ""
-   } 
+   }
   }
 
-  getTechniciansList = async () => {    
-    let URL = "http://localhost:8080/api/getTechnicians";
+  getTechniciansList = async () => {
+    let URL = "http://18.224.193.99:8080/api/getTechnicians";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -63,7 +63,7 @@ class MgrOrderList
   }
 
   getData = async () => {
-    let URL = "http://localhost:8080/api/getWorkOrders";
+    let URL = "http://18.224.193.99:8080/api/getWorkOrders";
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -85,7 +85,7 @@ class MgrOrderList
           id: this.state.selectedTechnician
         }
       };
-      fetch("http://localhost:8080/api/updateWorkOrder/" + orderId, {
+      fetch("http://18.224.193.99:8080/api/updateWorkOrder/" + orderId, {
           method: "PUT",
           body: JSON.stringify(updateOrder),
           headers: {
@@ -113,18 +113,18 @@ class MgrOrderList
     this.state.selectedTechnician = event.target.value;
   };
 
- 
+
   renderTableData() {
     return this.state.orderList.map((response) => {
-       const { id, priority, description, status, startDate} = response
-    
+       const { id, priority, description, status, userEmail} = response
+
         return (
             <tr key={id}>
               <td>{id}</td>
               <td>{priority}</td>
               <td>{description}</td>
               <td>{status}</td>
-              <td>{startDate}</td>
+              <td>{userEmail}</td>
               <td>
                 <select
                     className="form-control"
@@ -138,7 +138,7 @@ class MgrOrderList
                         Select
                     </option>
                     {this.renderDropDown()}
-                </select> 
+                </select>
             </td>
             <td><button className="btn btn-default btn-light" onClick={() => this.assignTechnician(id)}>
                 Assign Technician
@@ -163,13 +163,24 @@ class MgrOrderList
                 <th scope="col">Priority</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col">Start Date</th>
+                <th scope="col">User Email</th>
                 <th scope="col">Technician</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               {this.renderTableData()}
+            </tbody>
+          </table>
+        </div>
+        <div className="container-fluid">
+          <table className="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <Link className="btn btn-primary btn-lg" to='/Manager'>My Dashboard</Link>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

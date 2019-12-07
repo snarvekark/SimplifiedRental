@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router, 
+  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
@@ -13,7 +13,7 @@ import Dashboard from './Dashboard';
 import Manager from './Manager';
 import { Link, withRouter } from "react-router-dom";
 
-class Technician extends React.Component {  
+class Technician extends React.Component {
     render() {
         return (
       <React.Fragment>
@@ -61,7 +61,7 @@ class Technician extends React.Component {
       </div>
       <footer>
         <div class="footer-copyright text-center py-3 bg-light static-bottom">© 2019 Copyright
-          <Link to="http://localhost:3000"> Simplified Rental</Link>
+          <Link to="http://18.224.193.99:3000"> Simplified Rental</Link>
         </div>
       </footer>
   </React.Fragment>

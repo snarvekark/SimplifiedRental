@@ -16,7 +16,7 @@ class OrderList
     super(props);
     this.state = {
        orderList : []
-   } 
+   }
   }
   componentWillMount() {
     this.getData();
@@ -28,7 +28,7 @@ class OrderList
   getData = async () => {
     const email = localStorage.userEmail;
     console.log("checking email"+localStorage.userEmail);
-    let URL = "http://localhost:8080/api/getCustomerOrders/"+email;
+    let URL = "http://18.224.193.99:8080/api/getCustomerOrders/"+email;
     fetch(URL)
       .then(response => response.json())
       .then(response => {
@@ -49,10 +49,10 @@ class OrderList
               <td>{priority}</td>
               <td>{description}</td>
               <td>{status}</td>
-              <td><button className="btn btn-default btn-light" onClick={() => this.callDeleteApi(response.id)}>
+              {/* <td><button className="btn btn-default btn-light" onClick={() => this.callDeleteApi(response.id)}>
                   Delete
                 </button>
-              </td>
+              </td> */}
             </tr>
         )
     })
@@ -62,21 +62,21 @@ class OrderList
     console.log("User can delete the request if problem no longer persits");
     window.confirm("Proceed to delete the request");
   }
-  
+
  render () {
     return (
       <form>
       <div className="container">
         <div className="container-fluid">
           <h1>Order List</h1>
-          <table class="table table-bordered table-hover">
-            <thead class="thead-dark">
+          <table className="table table-bordered table-hover">
+            <thead className="thead-dark">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Priority</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col"></th>
+                {/* <th scope="col"></th> */}
               </tr>
             </thead>
             <tbody>
@@ -85,7 +85,7 @@ class OrderList
           </table>
         </div>
         <div className="container-fluid">
-          <table class="table table-borderless">
+          <table className="table table-borderless">
             <tbody>
               <tr>
                 <td>

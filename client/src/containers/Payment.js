@@ -77,7 +77,7 @@ class Payment extends Component {
     this.setState({
         number: "",
         month: "",
-        year: [],
+        year: "",
         cvv: ""
   });
   }
@@ -155,9 +155,12 @@ class Payment extends Component {
               </div>
             </div>
             <div className="form-group col-md-1">
-            <button className="btn btn-primary btn-lg">
+            <button className="btn btn-primary btn-lg" onClick="chargeCreditCard()">
               Submit
             </button>
+            </div>
+            <div className="form-group col-md-1">
+              <Link className="btn btn-primary btn-lg" to='/Dashboard'>My Dashboard</Link>
             </div>
           </form>
         </div>
